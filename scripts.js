@@ -12,28 +12,28 @@ function fetch(user) {
   getUsersByGID(gid, function(data){
     // success
     users = data['records'];
-    setCookie("catiaejose.com-users", JSON.stringify(data['records']), 10);
-    getCookie("catiaejose.com-users");
+    setCookie("casamentogoma.com-users", JSON.stringify(data['records']), 10);
+    getCookie("casamentogoma.com-users");
 
     $("#modal-loading").hide();
     populateInfo(user, users);
   }, function(){
     //error
-    setCookie("catiaejose.com-user", "", 0);
+    setCookie("casamentogoma.com-user", "", 0);
     window.location.href = "./index.html";
   });
 }
 
 function start(user) {
-  if(!getCookie("catiaejose.com-user")){
+  if(!getCookie("casamentogoma.com-user")){
     window.location.href = "./index.html";
   }
   else {
     // var users = [];
 
-    if (getCookie("catiaejose.com-users")) {
+    if (getCookie("casamentogoma.com-users")) {
       // console.log("cache");
-      users = JSON.parse(getCookie("catiaejose.com-users"));
+      users = JSON.parse(getCookie("casamentogoma.com-users"));
       populateInfo(user, users);
       return users;
     }
@@ -99,7 +99,7 @@ $("#close").click(function(){
 
 $("body").on("click", ".confirm", function(e){
   if (!users){
-    users = JSON.parse(getCookie("catiaejose.com-users"));
+    users = JSON.parse(getCookie("casamentogoma.com-users"));
   }
   let type = $(e.target).attr("usertype");
   let userid = $(e.target).attr("userid");
@@ -182,7 +182,7 @@ setInterval(function(){
 $("#modal-loading").hide();
 $("#modal-overlay").hide();
 
-let user = JSON.parse(getCookie("catiaejose.com-user"));
+let user = JSON.parse(getCookie("casamentogoma.com-user"));
 var users = start(user);
 
 getActiveFAQs(function(data){
