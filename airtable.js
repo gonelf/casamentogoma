@@ -1,7 +1,7 @@
 function getActiveFAQs(callback) {
 
   let formula = "NOT({status} = 'inactive')";
-  var url = "https://api.airtable.com/v0/apptnwzBVBTiGDyNl/FAQs?filterByFormula="+formula;
+  var url = "https://api.airtable.com/v0/appPQZZSswJvzwm5a/FAQs?filterByFormula="+formula;
 
   $.ajax({
     url: url,
@@ -25,7 +25,7 @@ function getActiveFAQs(callback) {
 function getRecordByEmail(email, callback) {
 
   let formula = "SEARCH('"+email+"',email)";
-  var url = "https://api.airtable.com/v0/apptnwzBVBTiGDyNl/ids?filterByFormula="+formula;
+  var url = "https://api.airtable.com/v0/appPQZZSswJvzwm5a/ids?filterByFormula="+formula;
 
   $.ajax({
     url: url,
@@ -49,10 +49,10 @@ function getRecordByEmail(email, callback) {
 function getUsersByGID(GID, callback, error) {
 
   let formula = "(GID="+GID+")";
-  // console.log("https://api.airtable.com/v0/apptnwzBVBTiGDyNl/users?filterByFormula="+formula+"&"+
+  // console.log("https://api.airtable.com/v0/appPQZZSswJvzwm5a/users?filterByFormula="+formula+"&"+
   // "sort%5B0%5D%5Bfield%5D=ID&sort%5B0%5D%5Bdirection%5D=desc");
   $.ajax({
-    url: 'https://api.airtable.com/v0/apptnwzBVBTiGDyNl/users?filterByFormula='+formula+
+    url: 'https://api.airtable.com/v0/appPQZZSswJvzwm5a/users?filterByFormula='+formula+
     "&sort%5B0%5D%5Bfield%5D=ID&sort%5B0%5D%5Bdirection%5D=desc",
     beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", "Bearer keybSe3wdoIEJsvGv");
@@ -73,11 +73,11 @@ function getUsersByGID(GID, callback, error) {
 }
 
 function updateUserRecord(record, callback, error) {
-  // console.log("https://api.airtable.com/v0/apptnwzBVBTiGDyNl/users");
+  // console.log("https://api.airtable.com/v0/appPQZZSswJvzwm5a/users");
   let data = {'records': [record]};
   // console.log(data);
   $.ajax({
-    url: "https://api.airtable.com/v0/apptnwzBVBTiGDyNl/users",
+    url: "https://api.airtable.com/v0/appPQZZSswJvzwm5a/users",
     beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", "Bearer keybSe3wdoIEJsvGv");
     },
