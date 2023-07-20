@@ -2,7 +2,7 @@
 <html lang="pt" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Cátia & José</title>
+    <title>Mariana & Gonçalo</title>
     <meta name="description" content="Cátia e José – Save the Date">
     <meta name="author" content="GoMa Studios">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="animations.js"></script>
   </head>
   <body>
-    <h1 style="display:none;">Casamento Cátia Jorge & José Fernandes – Almoçageme 2021</h1>
+    <h1 style="display:none;">Casamento Mariana Fernandes & Gonçalo Henriques – Gaeiras 2021</h1>
     <div class="planta-bottom-left" style="z-index: 100;">
         <img src="img/planta-bottom-left.png" alt="">
     </div>
@@ -25,8 +25,8 @@
 
     <section class="content">
       <div class="std-container" id="start-container">
-        <h1 class="calligraphy">Cátia & José</h1>
-        <h2>26 &middot; 06 &middot; 2021</h2>
+        <h1 class="calligraphy">Mariana & Gonçalo</h1>
+        <h2>28 &middot; 10 &middot; 2023</h2>
         <button type="button" name="Entrar" class="btn-gold large" onclick="showLogin()">Entrar</button>
       </div>
 
@@ -66,8 +66,8 @@
       let email = $("#email").val();
       getRecordByEmail(email, function(data){
         if (data.records.length > 0) {
-          setCookie("catiaejose.com-users", "", 0);
-          setCookie("catiaejose.com-user", JSON.stringify(data.records[0]), 10);
+          setCookie("casamentogoma.com-users", "", 0);
+          setCookie("casamentogoma.com-user", JSON.stringify(data.records[0]), 10);
           // getCookie("catiaejose.com-user");
           window.location.href = "./main.html";
         }
