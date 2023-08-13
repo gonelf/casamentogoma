@@ -49,7 +49,7 @@
 
           <h2 class="hello" id="welcome">Olá, [FirstName].</h2>
 
-          <section id="gifts" class="page-section">
+          <section id="gifts_container" class="page-section">
 
           </section>
 
@@ -80,11 +80,12 @@
                     <h2>Preço: €${gift.value}</h2>
                     <h2>Contribuições: €${contributions}</h2>
                     <span>${contributors}</span>
-                    <button class="contribute">Contribuir</button>
+                    <button type="button" name="button" class="contribute" gift_id="${gift.ID}" gifts_id="${entry.id}">Contribuir</button>
                   </div>
                 </div>`;
-                $("#gifts").append(g);
+                $("#gifts_container").append(g);
                 $(".progress-bar").ProgressBar();
+
               });
             });
 
@@ -140,6 +141,10 @@
             </div>
 
             <!-- <input type="hidden" id="id" value="" /> -->
+            <input type="hidden" id="user_id" name="user_id" value="" />
+            <input type="hidden" id="confirmed" name="confirmed" value="false">
+            <input type="hidden" id="gift_id" name="gift_id" value="">
+            <input type="hidden" id="gifts" name="gifts" value="">
           </form>
 
         </div>

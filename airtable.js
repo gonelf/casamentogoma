@@ -129,6 +129,17 @@ function getGifts(callback, error) {
 
 function addContributionRecord(record, callback, error) {
   // console.log("https://api.airtable.com/v0/appPQZZSswJvzwm5a/users");
+  console.log(record.fields['user_id']);
+  users = record.fields["user_id"];
+  record.fields['user_id'] = users.split(",");
+
+  gifts = record.fields['gifts'];
+  record.fields['gifts'] = [record.fields['gifts']];
+
+  record.fields['amount'] = parseFloat(record.fields['amount']);
+  record.fields['confirmed'] = (record.fields['confirmed'] === true);
+  record.fields['gift_id'] = parseFloat(record.fields['gift_id']);
+
   let data = {'records': [record]};
   console.log(data);
   $.ajax({
