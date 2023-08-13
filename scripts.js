@@ -50,6 +50,7 @@ function populateInfo(mainuser, users) {
   $("#welcome").html("Olá, "+mainuser.fields.name+".");
   $("#cards-row").html("");
   plusone = false;
+  user_ids = [];
   $.each(users.reverse(), function(index, user){
     var name = (!user.fields.name || user.fields.name == "") ? ((user.fields.type == 'plusone') ? "Plus One" : "Filho/a") : user.fields.name ;
     var confirmed = (user.fields.confirmed) ? (user.fields.confirmed == "Sim" ? "<span class='confirmado'>Confirmado</span>" : "<span class='confirmado_nao'>Não posso ir</span>") : '<span>&nbsp;</span>';
@@ -61,8 +62,12 @@ function populateInfo(mainuser, users) {
       '<button type="button" name="button" usertype="'+user.fields.type+'" userid="'+user.id+'" class="'+confirm_btn_class+' confirm">'+confirm_btn+'</button>'+
     '</div>');
     if (user.fields.type == 'plusone') plusone = true;
+
+    user_ids.push(user.id);
   });
   (!plusone && users.length > 1) ? $("#message").text(message) : $("#message").text(message_solo);
+
+  $("#user_id").val(user_ids);
 }
 
 function hideForms() {
@@ -76,13 +81,14 @@ function formSubmit(target) {
   $("#modal-loading").show();
   $("#modal-overlay").hide();
   // console.log(target);
+  // console.log($('#'+target).serializeArray());
   var form = $('#'+target).serializeArray().reduce(function(obj, item) {
     obj[item.name] = item.value;
     return obj;
   }, {});
   // let id = $('#'+target+' #id').val();
   let data = {'fields': form};
-  console.log(data);
+  // console.log(data);
   if(target=="contribution"){
     addContributionRecord(data, function(data){
       console.log("success");
@@ -193,8 +199,11 @@ setInterval(function(){
 }, 500);
 
 $("body").on("click", ".contribute", function(e){
+  console.log(e.target);
+  console.log($(e.target).attr("gift_id"));
+  $("#gift_id").val($(e.target).attr("gift_id"))
+  $("#gifts").val($(e.target).attr("gifts_id"));
   $("#modal-overlay").show();
-
 });
 
 // start
