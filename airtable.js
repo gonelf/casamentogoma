@@ -1,3 +1,4 @@
+// FAQs
 function getActiveFAQs(callback) {
 
   let formula = "NOT({status} = 'inactive')";
@@ -22,6 +23,7 @@ function getActiveFAQs(callback) {
   });
 }
 
+// Users
 function getRecordByEmail(email, callback) {
 
   let formula = "SEARCH('"+email+"',email)";
@@ -82,6 +84,59 @@ function updateUserRecord(record, callback, error) {
       xhr.setRequestHeader("Authorization", "Bearer keybSe3wdoIEJsvGv");
     },
     type: 'PATCH',
+    dataType: 'json',
+    contentType: 'application/json',
+    data: JSON.stringify(data),
+    processData: false,
+    success: function (data) {
+      // console.log(data);
+      callback(data);
+    },
+    error: function(){
+      // console.log("Cannot get data");
+      error();
+    }
+  });
+}
+
+// Gifts
+function getGifts(callback, error) {
+
+  // let formula = "(GID="+GID+")";
+  // console.log("https://api.airtable.com/v0/appPQZZSswJvzwm5a/users?filterByFormula="+formula+"&"+
+  // "sort%5B0%5D%5Bfield%5D=ID&sort%5B0%5D%5Bdirection%5D=desc");
+  $.ajax({
+    url: 'https://api.airtable.com/v0/appPQZZSswJvzwm5a/gifts',
+    //?filterByFormula='+formula+
+    //"&sort%5B0%5D%5Bfield%5D=ID&sort%5B0%5D%5Bdirection%5D=desc",
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader("Authorization", "Bearer keybSe3wdoIEJsvGv");
+    },
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json',
+    processData: false,
+    success: function (data) {
+      // console.log(data);
+      callback(data);
+    },
+    error: function(){
+      // console.log("Cannot get data");
+      error();
+    }
+  });
+}
+
+function addContributionRecord(record, callback, error) {
+  // console.log("https://api.airtable.com/v0/appPQZZSswJvzwm5a/users");
+  let data = {'records': [record]};
+  console.log(data);
+  $.ajax({
+    url: "https://api.airtable.com/v0/appPQZZSswJvzwm5a/contributions",
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader("Authorization", "Bearer keybSe3wdoIEJsvGv");
+    },
+    type: 'POST',
     dataType: 'json',
     contentType: 'application/json',
     data: JSON.stringify(data),

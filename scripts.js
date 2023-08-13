@@ -75,20 +75,35 @@ function hideForms() {
 function formSubmit(target) {
   $("#modal-loading").show();
   $("#modal-overlay").hide();
+  // console.log(target);
   var form = $('#'+target).serializeArray().reduce(function(obj, item) {
     obj[item.name] = item.value;
     return obj;
   }, {});
-  let id = $('#'+target+' #id').val();
-  let data = {'id': id, 'fields': form};
-  updateUserRecord(data, function(data){
-    // console.log("success");
-    fetch(user);
-    $("#modal-overlay").hide();
-  }, function(){
-    // console.log("error");
-    $("#modal-overlay").hide();
-  })
+  // let id = $('#'+target+' #id').val();
+  let data = {'fields': form};
+  console.log(data);
+  if(target=="contribution"){
+    addContributionRecord(data, function(data){
+      console.log("success");
+      // refresh
+      // fetch(user);
+      $("#modal-overlay").hide();
+    }, function(){
+      // console.log("error");
+      $("#modal-overlay").hide();
+    })
+  }
+  else {
+    updateUserRecord(data, function(data){
+      // console.log("success");
+      fetch(user);
+      $("#modal-overlay").hide();
+    }, function(){
+      // console.log("error");
+      $("#modal-overlay").hide();
+    })
+  }
 }
 
 // listners
@@ -176,6 +191,11 @@ setInterval(function(){
     $(".sidebar").show();
   }
 }, 500);
+
+$("body").on("click", ".contribute", function(e){
+  $("#modal-overlay").show();
+
+});
 
 // start
 

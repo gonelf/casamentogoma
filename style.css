@@ -44,3 +44,15 @@ body{
     margin-left: 0;
     margin-right: 0;
 }
+
+left{
+  position: relative;
+  float: left;
+  width: 50%;
+}
+
+right{
+  position: relative;
+  float: right;
+  width: 50%;
+}
