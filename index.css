@@ -71,12 +71,12 @@ select {
 /* SAVE THE DATE */
 
 @font-face {
-  font-family: Avenir;
-  src: url('fonts/Avenir.ttc');
+  font-family: BellotaRegular;
+  src: url('fonts/BellotaText-Regular.ttf');
 }
 @font-face {
-  font-family: Cherolina;
-  src: url('fonts/Cherolina.otf');
+  font-family: BellotaBold;
+  src: url('fonts/BellotaText-Bold.ttf');
 }
 
 body{
@@ -85,26 +85,9 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Avenir light', sans-serif;
+  background-blend-mode: luminosity;
+  font-family: 'BellotaRegular', sans-serif;
   position: relative;
-}
-
-.planta-top-right,
-.planta-bottom-left{
-  position: absolute;
-  height: 20vw;
-}
-.planta-top-right img,
-.planta-bottom-left img{
-  height: 100%;
-}
-.planta-top-right{
-  top: 0;
-  right: 0;
-}
-.planta-bottom-left{
-  bottom: 0;
-  left: 0;
 }
 
 .content{
@@ -114,27 +97,29 @@ body{
 
 .std-container{
   text-align: center;
-  color: #637589;
-  letter-spacing: 4px;
+  color: #28282E;
+  letter-spacing: 2px;
   padding-top: 10%;
 }
 
+.std-container .vertical-line{
+  width: 1px;
+  height: 80px;
+  background: #28282E;
+  margin: auto;
+}
+
 .std-container h2{
-  font-size: 32px;
+  font-size: 24px;
   margin-top: 40px;
   font-weight: 100;
-
+  text-transform: uppercase;
 }
+
 .std-container h1{
   margin: auto;
 }
-.std-container .calligraphy{
-  color: #C3AD72;
-  font-family: 'Cherolina', cursive;
-  font-size: 168px;
-  font-weight: 100;
-  line-height: 1;
-}
+
 .std-container h3{
   margin: auto;
   font-size: 24px;
@@ -145,6 +130,11 @@ body{
   font-size: 16px;
   text-transform: uppercase;
   margin-top: 2em;
+}
+.std-container .monogram-legend,
+.login-container .monogram-legend{
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 
 .std-container img{
@@ -165,15 +155,16 @@ body{
 
 .login-container{
   text-align: center;
-  color: #637589;
+  color: #28282E;
   padding-top: 10%;
   max-width: 360px;
   margin: auto;
 }
 
 .login-container h6{
-  font-size: 24px;
+  font-size: 18px;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .login-container p {
@@ -184,11 +175,13 @@ input.email-input{
   width: 100%;
   margin-top: 24px;
   font-size: 16px;
-  color: #637589;
+  color: #28282E;
   padding: 12px;
   border-radius: 0;
-  border: 1px solid #C3AD72;
+  border: 0;
+  border-bottom: 1px solid #28282E;
   box-sizing: border-box;
+  background: none;
 }
 
 input.email-input:active,
