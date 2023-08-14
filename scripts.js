@@ -93,11 +93,12 @@ function formSubmit(target) {
     addContributionRecord(data, function(data){
       console.log("success");
       // refresh
+      location.reload();
       // fetch(user);
-      $("#modal-overlay").hide();
+      // $(".modal-overlay").hide();
     }, function(){
       // console.log("error");
-      $("#modal-overlay").hide();
+      $(".modal-overlay").hide();
     })
   }
   else {
@@ -110,6 +111,10 @@ function formSubmit(target) {
       $("#modal-overlay").hide();
     })
   }
+}
+
+function onlyUnique(value, index, array) {
+  return array.indexOf(value) === index;
 }
 
 // listners
@@ -225,3 +230,5 @@ getActiveFAQs(function(data){
     $(faq).insertBefore('#ghost');
   });
 });
+
+// com mon

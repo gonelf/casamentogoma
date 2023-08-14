@@ -60,6 +60,7 @@
               data.records.forEach((entry, i) => {
                 var gift = entry.fields;
                 var contributors = gift.contributors.join(", ");
+                let unique = [...new Set(gift.contributors)];
                 let contributions = 0;
                 gift.contributions.map(x => contributions += x);
                 let percent = Math.round(contributions*100/gift.value);
@@ -79,7 +80,7 @@
                     </div>
                     <h2>Preço: €${gift.value}</h2>
                     <h2>Contribuições: €${contributions}</h2>
-                    <span>${contributors}</span>
+                    <span>${unique.join(", ")}</span>
                     <button type="button" name="button" class="contribute" gift_id="${gift.ID}" gifts_id="${entry.id}">Contribuir</button>
                   </div>
                 </div>`;
