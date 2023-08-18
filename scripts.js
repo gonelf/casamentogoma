@@ -52,9 +52,9 @@ function populateInfo(mainuser, users) {
   plusone = false;
   $.each(users.reverse(), function(index, user){
     var name = (!user.fields.name || user.fields.name == "") ? ((user.fields.type == 'plusone') ? "Plus One" : "Filho/a") : user.fields.name ;
-    var confirmed = (user.fields.confirmed) ? (user.fields.confirmed == "Sim" ? "<span class='confirmado'>Confirmado</span>" : "<span class='confirmado_nao'>Não posso ir</span>") : '<span>&nbsp;</span>';
+    var confirmed = (user.fields.confirmed) ? (user.fields.confirmed == "Sim" ? "<span class='confirmado'>✔ Confirmado</span>" : "<span class='confirmado_nao'>✕ Não posso ir</span>") : '<span>&nbsp;</span>';
     var confirm_btn = (user.fields.confirmed) ? "Alterar confirmação" : 'Confirmar presença';
-    var confirm_btn_class = (user.fields.confirmed) ? "btn" : "btn-gold";
+    var confirm_btn_class = (user.fields.confirmed) ? "btn-primary" : "btn-primary";
     $("#cards-row").append('<div class="card">'+
       '<h6>'+name+'</h6>'+
       confirmed+

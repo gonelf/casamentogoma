@@ -198,13 +198,13 @@ a.logout:visited,a.logout:active{}
 }
 
 .faq-card{
-  background: #FFFFFF;
-  border: 1px solid #C4CFDB;
+  background: transparent;
+  border: 1px solid #28282E;
   box-shadow: 0px 2px 4px rgba(99, 117, 137, 0.2);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 16px;
   padding-bottom: 24px;
-  flex: 1 1 45%;
+  flex: 1 1 25%;
   margin-right: 16px;
   margin-bottom: 16px;
 }
@@ -219,17 +219,17 @@ a.logout:visited,a.logout:active{}
 }
 
 .faq-card p{
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .card{
-  background: #FFFFFF;
-  border: 1px solid #C4CFDB;
-  box-shadow: 0px 2px 4px rgba(99, 117, 137, 0.2);
-  border-radius: 4px;
+  background: transparent;
+  border: 1px solid #28282E;
+  box-shadow: 0px 2px 4px rgba(40, 40, 46, 0.2);
+  border-radius: 0px;
   padding: 16px;
   padding-bottom: 24px;
-  flex: 0 0 208px;
+  flex: 0 1 288px;
   margin-right: 16px;
   margin-bottom: 16px;
 }
@@ -237,9 +237,10 @@ a.logout:visited,a.logout:active{}
 .card h6,
 .faq-card h6{
   margin:0;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 16px;
   line-height: 24px;
+  text-transform: uppercase;
 }
 
 .faq-card h6{
@@ -253,14 +254,14 @@ a.logout:visited,a.logout:active{}
 }
 
 span.confirmado {
-    font-size: 14px;
-    color: cadetblue;
+    font-size: 16px;
+    color: #249B69;
     font-style: italic;
 }
 
 span.confirmado_nao {
-    font-size: 14px;
-    color: firebrick;
+    font-size: 16px;
+    color: #C01207;
     font-style: italic;
 }
 /* --------------------------- PRESENÇA / FAQS ------------------------------*/
@@ -350,9 +351,9 @@ span.confirmado_nao {
 
 .modal-card{
   background: white;
-  border: 1px solid #C4CFDB;
+  border: 1px solid #28282E;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  border-radius: 0px;
   width: fit-content;
   margin: auto;
   margin-top: 4em;
@@ -362,6 +363,7 @@ span.confirmado_nao {
 
 .modal-title{
   color: #28282E;
+  font-weight: 700;
 }
 
 .modal-card #close{
@@ -374,7 +376,6 @@ span.confirmado_nao {
   display: flex;
   flex-direction: column;
   margin-top: 1.5em;
-  padding: 0 2em;
 }
 
 .form-field{
@@ -388,8 +389,8 @@ span.confirmado_nao {
 
 .form-label{
   margin-bottom: 2em;
-  width: 180px;
-  text-align: right;
+  width: 200px;
+  text-align: left;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -409,7 +410,7 @@ input[type="text"]{
 input[type="radio"]{
   height: 24px;
   width: 24px;
-  border: 1px solid #C3AD72;
+  border: 1px solid #28282E;
   vertical-align: bottom;
   margin-right: 8px;
 }
@@ -429,8 +430,8 @@ input[type="text"],
 textarea{
   width: 320px;
   font-size: 14px;
-  border: 1px solid #C3AD72;
-  border-radius: 4px;
+  border: 1px solid #28282E;
+  border-radius: 0px;
   padding: 8px;
   margin-top: -8px;
 }
