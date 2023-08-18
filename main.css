@@ -1,33 +1,12 @@
 /* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after {box-sizing: border-box;}
 
 /* Remove default padding */
-ul[class],
-ol[class] {
-  padding: 0;
-}
+ul[class], ol[class] {padding: 0;}
 
 /* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
+body, h1, h2, h3, h4, p, ul[class], ol[class], li, figure, figcaption,
+blockquote, dl, dd {margin: 0;}
 
 /* Set core body defaults */
 .wrapper {
@@ -35,53 +14,37 @@ dd {
   overflow-x: hidden;
   position: relative;
 }
-
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  /* overflow-x: clip; */
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-  list-style: none;
-}
+ul[class],ol[class] {list-style: none;}
 
 /* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
+a:not([class]) {text-decoration-skip-ink: auto;}
 
 /* Make images easier to work with */
-img {
-  max-width: 100%;
-  display: block;
-}
+img {max-width: 100%;display: block;}
 
 /* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
-}
+article > * + * {margin-top: 1em;}
 
 /* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
+input,button,textarea,select {font: inherit;}
 
+/* --------------------------- MAIN CSS ------------------------------*/
 h1{
   display: block;
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: 700;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 700;
 }
 
 body{
@@ -99,11 +62,23 @@ body{
   position: fixed;
   top: 8em;
   width: 100vw;
-  height: calc(100vh - 128px - 92px);
+  height: calc(100vh - 16em);
   overflow-y: scroll;
 }
 
-/* NAVIGATION*/
+.hello{
+  font-size: 24px;
+  line-height: 44px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #28282E;
+  font-weight: normal;
+  margin-top: 2em;
+  padding-left: 32px;
+  position: fixed;
+}
+
+/* --------------------------- NAVIGATION ------------------------------*/
 .navbar{
   position: fixed;
   bottom: 0;
@@ -185,24 +160,13 @@ a.logout:visited,a.logout:active{}
   padding: 1em 0;
   margin-left: 0.5em;
 }
-/* NAVIGATION END*/
+/* --------------------------- NAVIGATION ------------------------------*/
 
+/* --------------------------- SECTIONS ------------------------------*/
 
 .content{
   min-height: 1em;
   display: flex;
-}
-
-.hello{
-  font-size: 24px;
-  line-height: 44px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #28282E;
-  font-weight: normal;
-  margin-top: 2em;
-  padding-left: 32px;
-  position: fixed;
 }
 
 .page-section{
@@ -210,6 +174,7 @@ a.logout:visited,a.logout:active{}
   flex: 100% 1 0;
 }
 
+/* --------------------------- PRESENÇA / FAQS ------------------------------*/
 .page-section#presenca{
   margin-top: 32px;
   margin-bottom: -16px;
@@ -298,17 +263,14 @@ span.confirmado_nao {
     color: firebrick;
     font-style: italic;
 }
+/* --------------------------- PRESENÇA / FAQS ------------------------------*/
 
-.location-details {
-  flex: 1 0 26%;
-  padding-left: 8px;
-  border-left: 4px #C3AD72 solid;
-  margin-left: 16px;
-}
+/* --------------------------- LOCATION -------------------------------*/
 
 .location-title{
   color: #28282E;
   font-weight: 700;
+  font-size: 18px;
 }
 
 .container-quinta{
@@ -331,6 +293,11 @@ span.confirmado_nao {
   margin-left: 16px;
   text-align: left;
 }
+/* --------------------------- LOCATION -------------------------------*/
+
+
+
+/* --------------------------- CONTACTOS ------------------------------*/
 
 .contactos{
   display: flex;
@@ -359,20 +326,17 @@ span.confirmado_nao {
   color: #28282E;
 }
 
+/* --------------------------- CONTACTOS ------------------------------*/
+
 .signature{
   font-size: 11px;
   margin-top: 88px;
   padding-bottom: 2em;
 }
 
-.footer-plant{
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  width: 266px;
-  transform: matrix(1, 0, 0, -1, 0, 0);
-}
 
+
+/* --------------------------- MODALS ------------------------------*/
 
 .modal-overlay{
   /*display: none;*/
@@ -496,8 +460,11 @@ p.loading-txt {
     font-size: 16px;
     font-weight: 600;
 }
+/* --------------------------- MODALS -----------------------------------*/
 
-/* MEDIA QUERIES */
+
+
+/* --------------------------- MEDIA QUERIES ---------------------------*/
 
 @media all and (max-width: 1199px) {
   .sidebar{
@@ -667,7 +634,7 @@ p.loading-txt {
   .faq-card {
     flex: 1 1 100%;
     margin-right: 0;
-}
+  }
 
 
 }

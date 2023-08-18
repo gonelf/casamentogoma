@@ -1,33 +1,11 @@
 /* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+*,*::before,*::after {box-sizing: border-box;}
 
 /* Remove default padding */
-ul[class],
-ol[class] {
-  padding: 0;
-}
+ul[class],ol[class] {padding: 0;}
 
 /* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
+body,h1,h2,h3,h4,p,ul[class],ol[class],li,figure,figcaption,blockquote,dl,dd {margin: 0;}
 
 /* Set core body defaults */
 body {
@@ -39,46 +17,20 @@ body {
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-  list-style: none;
-}
+ul[class],ol[class] {list-style: none;}
 
 /* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
+a:not([class]) {text-decoration-skip-ink: auto;}
 
 /* Make images easier to work with */
-img {
-  max-width: 100%;
-  display: block;
-}
+img {max-width: 100%;display: block;}
 
 /* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
-}
+article > * + * {margin-top: 1em;}
 
 /* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
+input,button,textarea,select {font: inherit;}
 
-/* SAVE THE DATE */
-/*
-@font-face {
-  font-family: BellotaRegular;
-  src: url('fonts/BellotaText-Regular.ttf');
-}
-@font-face {
-  font-family: BellotaBold;
-  src: url('fonts/BellotaText-Bold.ttf');
-}
- */
 body{
   height: 100vh;
   background-image: url('img/background.png');
@@ -91,11 +43,14 @@ body{
   position: relative;
 }
 
+
+/* --------------------------- MAIN CSS ------------------------------*/
 .content{
   max-width: 90%;
   margin:auto;
 }
 
+/* --------------------------- LANDING ------------------------------*/
 .std-container{
   text-align: center;
   color: #28282E;
@@ -143,16 +98,12 @@ body{
   margin-top: 3em;
 }
 
-.monograma-login{
-  position: absolute;
-  bottom: 2em;
-  left: 47%;
-  width: 6%;
-}
-
 .std-container button{
   margin-top: 48px;
 }
+/* --------------------------- LANDING ------------------------------*/
+
+/* --------------------------- LOGIN --------------------------------*/
 
 .login-container{
   text-align: center;
@@ -198,8 +149,10 @@ input.email-input:visited{
   outline: 0;
 }
 
+/* --------------------------- LOGIN ------------------------------*/
 
 
+/* --------------------------- MODAL ------------------------------*/
 .modal-overlay{
   /*display: none;*/
   height: 100%;
@@ -246,6 +199,11 @@ img#error {
 .error-txt{
   margin: 2em 0;
 }
+
+/* --------------------------- MODAL ------------------------------*/
+
+
+/* --------------------------- MEDIA QUERIES ------------------------------*/
 
 @media all and (max-width: 1024px) {
   .std-container{
