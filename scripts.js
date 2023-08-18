@@ -86,10 +86,11 @@ function formSubmit(target) {
     obj[item.name] = item.value;
     return obj;
   }, {});
-  // let id = $('#'+target+' #id').val();
-  let data = {'fields': form};
+  let id;
+  let data;
   // console.log(data);
   if(target=="contribution"){
+    let data = {'fields': form};
     addContributionRecord(data, function(data){
       console.log("success");
       // refresh
@@ -102,6 +103,8 @@ function formSubmit(target) {
     })
   }
   else {
+    let id = $('#'+target+' #id').val();
+    let data = {'id': id, 'fields': form};
     updateUserRecord(data, function(data){
       // console.log("success");
       fetch(user);
