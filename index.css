@@ -69,7 +69,7 @@ select {
 }
 
 /* SAVE THE DATE */
-
+/*
 @font-face {
   font-family: BellotaRegular;
   src: url('fonts/BellotaText-Regular.ttf');
@@ -78,7 +78,7 @@ select {
   font-family: BellotaBold;
   src: url('fonts/BellotaText-Bold.ttf');
 }
-
+ */
 body{
   height: 100vh;
   background-image: url('img/background.png');
@@ -86,7 +86,8 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: luminosity;
-  font-family: 'BellotaRegular', sans-serif;
+  font-family: 'Bellota Text', sans-serif;
+  font-weight: 400;
   position: relative;
 }
 
@@ -164,11 +165,16 @@ body{
 .login-container h6{
   font-size: 18px;
   margin: 0;
+  margin-top: 2em;
   text-transform: uppercase;
 }
 
 .login-container p {
   font-size: 16px;
+}
+
+.login-container form{
+  margin-top: 1em;
 }
 
 input.email-input{
