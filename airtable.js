@@ -1,7 +1,7 @@
 // FAQs
 function getActiveFAQs(callback) {
 
-  let formula = "NOT({status} = 'inactive')";
+  let formula = "NOT({status} = 'inactive')&sort[0][field]=order&sort[0][direction]=desc";
   var url = "https://api.airtable.com/v0/appPQZZSswJvzwm5a/FAQs?filterByFormula="+formula;
 
   $.ajax({
