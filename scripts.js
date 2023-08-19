@@ -7,6 +7,13 @@ message_solo = "Aqui tens uma área dedicada à confirmação da tua presença."
 
 // functions
 
+function getLanguage(){
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  console.log(urlParams.get('lang') ? urlParams.get('lang') : "pt");
+  return urlParams.get('lang') ? urlParams.get('lang') : "pt";
+}
+
 function fetch(user) {
   let gid = user.fields.GID;
   getUsersByGID(gid, function(data){
@@ -35,6 +42,8 @@ function start(user) {
       // console.log("cache");
       users = JSON.parse(getCookie("casamentogoma.com-users"));
       populateInfo(user, users);
+
+      localize();
       return users;
     }
     else {
@@ -47,7 +56,9 @@ function start(user) {
 
 function populateInfo(mainuser, users) {
   // console.log(users);
-  $("#welcome").html("Olá, "+mainuser.fields.name+".");
+  let lang = getLanguage();
+  // console.log(HI[lang]);
+  $("#welcome").html(`[HI], ${mainuser.fields.name}.`);
   $("#cards-row").html("");
   plusone = false;
   user_ids = [];
@@ -119,6 +130,19 @@ function formSubmit(target) {
 function onlyUnique(value, index, array) {
   return array.indexOf(value) === index;
 }
+
+getActiveFAQs(function(data){
+  // console.log(data);
+  let lang = getLanguage();
+  $.each(data.records.reverse(), function(key, record){
+    // console.log(record.fields.pergunta);
+    let faq = `<div class="faq-card">
+      <h6>${record.fields["pergunta_"+lang]}</h6>
+      <p>${record.fields["resposta_"+lang]}</p>
+    </div>`;
+    $(faq).insertBefore('#ghost');
+  });
+});
 
 // listners
 
@@ -222,16 +246,4 @@ $("#modal-overlay").hide();
 let user = JSON.parse(getCookie("casamentogoma.com-user"));
 var users = start(user);
 
-getActiveFAQs(function(data){
-  // console.log(data);
-  $.each(data.records.reverse(), function(key, record){
-    // console.log(record.fields.pergunta);
-    let faq = '<div class="faq-card">'+
-      '<h6>'+record.fields.pergunta+'</h6>'+
-      '<p>'+record.fields.resposta+'</p>'+
-    '</div>';
-    $(faq).insertBefore('#ghost');
-  });
-});
-
-// com mon
+// common

@@ -51,8 +51,6 @@ function getRecordByEmail(email, callback) {
 function getUsersByGID(GID, callback, error) {
 
   let formula = "(GID="+GID+")";
-  // console.log("https://api.airtable.com/v0/appPQZZSswJvzwm5a/users?filterByFormula="+formula+"&"+
-  // "sort%5B0%5D%5Bfield%5D=ID&sort%5B0%5D%5Bdirection%5D=desc");
   $.ajax({
     url: 'https://api.airtable.com/v0/appPQZZSswJvzwm5a/users?filterByFormula='+formula+
     "&sort%5B0%5D%5Bfield%5D=ID&sort%5B0%5D%5Bdirection%5D=desc",
@@ -102,13 +100,9 @@ function updateUserRecord(record, callback, error) {
 // Gifts
 function getGifts(callback, error) {
 
-  // let formula = "(GID="+GID+")";
-  // console.log("https://api.airtable.com/v0/appPQZZSswJvzwm5a/users?filterByFormula="+formula+"&"+
-  // "sort%5B0%5D%5Bfield%5D=ID&sort%5B0%5D%5Bdirection%5D=desc");
+  let sort = "sort[0][field]=order&sort[0][direction]=asc";
   $.ajax({
-    url: 'https://api.airtable.com/v0/appPQZZSswJvzwm5a/gifts',
-    //?filterByFormula='+formula+
-    //"&sort%5B0%5D%5Bfield%5D=ID&sort%5B0%5D%5Bdirection%5D=desc",
+    url: 'https://api.airtable.com/v0/appPQZZSswJvzwm5a/gifts?'+sort,
     beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", "Bearer keybSe3wdoIEJsvGv");
     },

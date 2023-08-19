@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellota+Text">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="animations.js"></script>
+  <script type="text/javascript" src="localization.js"></script>
 </head>
   <body>
     <div class="wrapper" id="wrapper">
@@ -30,22 +31,22 @@
           <a href="index.html" class="logout">Sair</a>
 
           <div class="menu-lang">
-            <a href="" class="menu-items">PT</a>
-            <a href="" class="menu-items">EN</a>
+            <a href="?lang=pt" class="menu-items">PT</a>
+            <a href="?lang=en" class="menu-items">EN</a>
           </div>
         </nav>
 
       </div>
 
-      <h2 class="hello" id="welcome">Olá, [FirstName].</h2>
+      <h2 class="hello localize" id="welcome">[HI], [FirstName].</h2>
       <section id="presenca" class="container">
         <div class="content" id="top">
           <section class="page-section">
-            <h3>A tua presença</h3>
+            <h3 class="localize">[PRESENCE]</h3>
             <p>
               <span id="message"></span>
               <br>
-              Por favor, confirma até dia <u>28 de Setembro</u>!</p>
+              <span class="localize">[MESSAGE_TEXT]<span> <u>28 de Setembro</u>!</p>
               <div class="cards-row" id="cards-row">
 
               </div>
