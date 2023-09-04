@@ -1,9 +1,9 @@
 // common
 
-let alergies_placeholder = "Exemplos: vegetariano, vegan, glúten, lactose, leite, ovo, marisco, peixe, amendoim e frutos secos, soja...";
-$(".alergies").attr("placeholder", alergies_placeholder);
-message = "Aqui tens uma área dedicada à confirmação da tua presença, e também à da tua família, a quem estendemos o convite com todo o gosto!";
-message_solo = "Aqui tens uma área dedicada à confirmação da tua presença.";
+//let alergies_placeholder = "Exemplos: vegetariano, vegan, glúten, lactose, leite, ovo, marisco, peixe, amendoim e frutos secos, soja...";
+//$(".alergies").attr("placeholder", alergies_placeholder);
+// message = "";
+// message_solo = "Aqui tens uma área dedicada à confirmação da tua presença.";
 
 // functions
 
@@ -63,20 +63,20 @@ function populateInfo(mainuser, users) {
   plusone = false;
   user_ids = [];
   $.each(users.reverse(), function(index, user){
-    var name = (!user.fields.name || user.fields.name == "") ? ((user.fields.type == 'plusone') ? "Plus One" : "Filho/a") : user.fields.name ;
-    var confirmed = (user.fields.confirmed) ? (user.fields.confirmed == "Sim" ? "<span class='confirmado'>✔ Confirmado</span>" : "<span class='confirmado_nao'>✕ Não posso ir</span>") : '<span>&nbsp;</span>';
-    var confirm_btn = (user.fields.confirmed) ? "Alterar confirmação" : 'Confirmar presença';
+    var name = (!user.fields.name || user.fields.name == "") ? ((user.fields.type == 'plusone') ? "Plus One" : "[child]") : user.fields.name ;
+    var confirmed = (user.fields.confirmed) ? (user.fields.confirmed == "Sim" ? "<span class='confirmado localize'>✔ [rsvp_going]</span>" : "<span class='confirmado_nao localize'>✕ [rsvp_not_going]</span>") : '<span>&nbsp;</span>';
+    var confirm_btn = (user.fields.confirmed) ? "[rsvp_change_btn]" : '[rsvp_confirm_btn]';
     var confirm_btn_class = (user.fields.confirmed) ? "btn-primary" : "btn-primary";
     $("#cards-row").append('<div class="card">'+
       '<h6>'+name+'</h6>'+
       confirmed+
-      '<button type="button" name="button" usertype="'+user.fields.type+'" userid="'+user.id+'" class="'+confirm_btn_class+' confirm">'+confirm_btn+'</button>'+
+      '<button type="button" name="button" usertype="'+user.fields.type+'" userid="'+user.id+'" class="localize '+confirm_btn_class+' confirm">'+confirm_btn+'</button>'+
     '</div>');
     if (user.fields.type == 'plusone') plusone = true;
 
     user_ids.push(user.id);
   });
-  (!plusone && users.length > 1) ? $("#message").text(message) : $("#message").text(message_solo);
+  (!plusone && users.length > 1) ? $("#message").text("[rsvp_group_message]") : $("#message").text("[rsvp_solo_message]");
 
   $("#user_id").val(user_ids);
 
