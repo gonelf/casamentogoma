@@ -23,12 +23,12 @@
       <div class="navbar">
         <nav id="menu">
           <img src="img/goma-subtract.svg" alt="GoMa">
-          <a href="#top" id="#presenca" class="menu-items active">Presença</a>
-          <a href="#localizacao" id="#localizacao" class="menu-items">Localização</a>
-          <a href="#faqs" id="#faqs" class="menu-items">FAQs</a>
-          <a href="#contactos" id="#contactos" class="menu-items">Contactos</a>
-          <a href="gifts.html" id="#gifts" class="menu-items" target="_blank">Presentes <img src="img/new-tab.svg" alt="Opens in a new tab"></a>
-          <a href="index.html" class="logout">Sair</a>
+          <a href="#top" id="#presenca" class="menu-items localize active">[menu_rsvp]</a>
+          <a href="#localizacao" id="#localizacao" class="menu-items localize">[menu_location]</a>
+          <a href="#faqs" id="#faqs" class="menu-items localize">[menu_faqs]</a>
+          <a href="#contactos" id="#contactos" class="menu-items localize">[menu_contacts]</a>
+          <a href="gifts.html" id="#gifts" class="menu-items localize" target="_blank">[menu_gifts] <img src="img/new-tab.svg" alt="Opens in a new tab"></a>
+          <a href="index.html" class="logout localize">[menu_logout]</a>
 
           <div class="menu-lang">
             <a href="?lang=pt" class="menu-items">PT</a>
@@ -42,18 +42,18 @@
       <section id="presenca" class="container">
         <div class="content" id="top">
           <section class="page-section">
-            <h3 class="localize">[PRESENCE]</h3>
+            <h3 class="localize">[RSVP]</h3>
             <p>
               <span id="message"></span>
               <br>
-              <span class="localize">[MESSAGE_TEXT]<span> <u>28 de Setembro</u>!</p>
+              <span class="localize">[rsvp_message]<span> <u class="localize">1 de [month]</u>!</p>
               <div class="cards-row" id="cards-row">
 
               </div>
           </section>
 
           <section id="localizacao" class="page-section">
-            <h3>Localização</h3>
+            <h3 class="localize">[menu_location]</h3>
             <div class="container-quinta">
               <img src="img/casadasgaeiras.png" alt="Casa das Gaeiras, Óbidos">
               <div class="location-details">
@@ -63,18 +63,16 @@
                 <a href="https://goo.gl/maps/BizoED2vXDc6idam6" target="_blank" class="link-mapa">Mapa</a>
                 <br>
                 <br>
-                <p class="location-title">Como chegar?</p>
-                <p>De Lisboa: A8, saída 17 <br>
-                  Do Porto: A1, A17 e A8, saída 17</p>
+                <p class="location-title localize">[how_to_get]</p>
+                <p><span class="localize">[from_lisbon]</span><br><span class="localize">[from_oporto]</span></p>
               </div>
             </div>
           </section>
 
           <section id="faqs" class="page-section">
-            <h3>Perguntas Frequentes</h3>
-            <p>Gostávamos de usar este espaço para tentar responder às perguntas
-              mais frequentes que nos têm feito. Esperamos que vos seja útil! <br>
-            Se ainda tiveres alguma dúvida ou questão, não hesites e <a href="#contactos">contacta-nos!</a></p>
+            <h3 class="localizacao localize">[menu_faqs]</h3>
+            <p><span class="localize">[faqs_message_1]</span> <br>
+            <span class="localize">[faqs_message_2]</span> <a href="#contactos" class="localize">[contact_us]</a></p>
             <div class="cards-row" id="FAQs">
               <!-- FAQs enter here -->
               <div class="faq-card" id="ghost">
@@ -85,15 +83,15 @@
           </section>
 
           <section id="contactos" class="page-section">
-            <h3>Contactos</h3>
-            <p>Ficaste com alguma dúvida ou precisas de ajuda com algo? Fica à vontade para nos contactares, caso necessites.</p>
+            <h3 class="localize">[menu_contacts]</h3>
+            <p class="localize">[contacts_message]</p>
             <div class="contactos">
               <div class="contacto-noiva">
                 <p class="noiva">Mariana</p>
                 <a href="tel:+351916281236">916 281 236</a>
               </div>
               <div class="monograma">
-                <img src="img/monograma.svg" alt="C&J">
+                <img src="img/goma-subtract.svg" alt="GoMa">
               </div>
               <div class="contacto-noivo">
                 <p class="noivo">Gonçalo</p>

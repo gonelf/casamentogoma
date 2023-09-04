@@ -314,6 +314,10 @@ span.confirmado_nao {
   margin-right: 24px;
 }
 
+.monograma img{
+  width: 23px;
+}
+
 .noiva, .noivo{
   font-family: Avenir;
   font-style: normal;

@@ -43,7 +43,6 @@ function start(user) {
       users = JSON.parse(getCookie("casamentogoma.com-users"));
       populateInfo(user, users);
 
-      localize();
       return users;
     }
     else {
@@ -51,6 +50,7 @@ function start(user) {
       $("#modal-loading").show();
       fetch(user);
     }
+    localize();
   }
 }
 
@@ -79,6 +79,8 @@ function populateInfo(mainuser, users) {
   (!plusone && users.length > 1) ? $("#message").text(message) : $("#message").text(message_solo);
 
   $("#user_id").val(user_ids);
+
+  localize();
 }
 
 function hideForms() {
