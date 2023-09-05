@@ -305,13 +305,9 @@ span.confirmado_nao {
   margin-top: 24px;
 }
 
-.contacto-noiva{
-  text-align: right;
-  margin-right: 24px;
-}
-
-.contactos .monograma{
-  margin-right: 24px;
+.contacto-noiva,
+.contacto-noivo{
+  text-align: center;
 }
 
 .noiva, .noivo{
@@ -450,7 +446,7 @@ form.kid-known{
 
 
 .modal-loading {
-  background-color: #f9f9f1;
+  background-color: white;
 }
 img#loading {
     margin: auto;
