@@ -11,11 +11,11 @@ let translations = {
   "RSVP" : {"pt": "A tua presença", "en": "RSVP"},
   "rsvp_group_message": {
     "pt": "Aqui tens uma área dedicada à confirmação da tua presença, e também à da tua família, a quem estendemos o convite com todo o gosto!",
-    "en": ""
+    "en": "This area dedicated to RSVP your presence, and also your family, to whom we gladly extend the invitation!"
   },
   "rsvp_solo_message": {
     "pt": "Aqui tens uma área dedicada à confirmação da tua presença.",
-    "en": ""
+    "en": "This area dedicated to RSVP your presence."
   },
   "rsvp_message" : {"pt": "Por favor, confirma até dia", "en": "Please RSVP before"},
   "month": {"pt": "1 de Outubro", "en": "October 1st"},
