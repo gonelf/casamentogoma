@@ -61,7 +61,7 @@
 
     </section>
 
-    <div class="modal-overlay" id="modal-error">
+    <div class="modal-overlay" id="modal-error" style="display: none;">
       <div class="modal-card modal-error">
         <img id="error" src="img/vip.png" />
         <p class="error-txt localize">[index_not_found]</p>
@@ -95,7 +95,7 @@
 
     $("#modal-error").hide();
 
-    $(".btn").click(function(){
+    $(".btn-secondary").click(function(){
       $("#modal-error").hide();
     })
 
