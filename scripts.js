@@ -7,12 +7,6 @@
 
 // functions
 
-function getLanguage(){
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  console.log(urlParams.get('lang') ? urlParams.get('lang') : "pt");
-  return urlParams.get('lang') ? urlParams.get('lang') : "pt";
-}
 
 function fetch(user) {
   let gid = user.fields.GID;
@@ -56,7 +50,7 @@ function start(user) {
 
 function populateInfo(mainuser, users) {
   // console.log(users);
-  let lang = getLanguage();
+  // let lang = getLanguage();
   // console.log(HI[lang]);
   $("#welcome").html(`[HI], ${mainuser.fields.name}.`);
   $("#cards-row").html("");
@@ -81,6 +75,8 @@ function populateInfo(mainuser, users) {
   $("#user_id").val(user_ids);
 
   localize();
+  setTimeout(localize(), 5000);
+
 }
 
 function hideForms() {

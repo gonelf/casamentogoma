@@ -1,4 +1,16 @@
 let translations = {
+  // index
+  "index_enter": {"pt": "Entrar", "en": "Enter"},
+  "index_welcome": {"pt": "Bem-vindo", "en": "Welcome"},
+  "index_welcome_message": {
+    "pt": "Introduz o teu e-mail abaixo para acederes ao website do nosso casamento.",
+    "en": "Enter your email to access to our wedding details."
+  },
+  "index_not_found":{
+    "pt": "Ups, não conseguimos encontrar este email na nossa lista de convidados... Tenta novamente, por favor!",
+    "en": "Ups, we couldn't find the email you entered. Please try again."
+  },
+  "index_try_again": {"pt": "Tentar novamente", "en": "Try again"},
   // menu & titulos
   "menu_rsvp": {"pt": "Presença", "en": "RSVP"},
   "menu_location": {"pt": "Localização", "en": "Location"},
@@ -38,7 +50,7 @@ let translations = {
   // contacts
   "contacts_message": {"pt": "Ficaste com alguma dúvida ou precisas de ajuda com algo? Fica à vontade para nos contactares, caso necessites.", "en": "Have a question or need help with something? Feel free to contact us if needed."},
   // loading
-  "loading": {"pt": "A verificar a lista de convidados...", "en": "Loading..."},
+  "loading...": {"pt": "A verificar a lista de convidados...", "en": "Loading..."},
   // forms
   "rsvp_yes": {"pt": "Sim, confirmo!", "en": "Yes, count me in!"},
   "rsvp_no": {"pt": "Não posso ir :(", "en": "No, I can't go :("},
@@ -66,22 +78,29 @@ let translations = {
 
 }
 
+function getLanguage(){
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  // console.log(urlParams.get('lang') ? urlParams.get('lang') : "pt");
+  return urlParams.get('lang') ? urlParams.get('lang') : "pt";
+}
+
 function localize () {
   let lang = getLanguage();
   $(".localize").each((i, e)=>{
     // console.log($(e).attr('placeholder'));
     // console.log($(e)[0].placeholder);
     // console.log($(e).text());
-    // if ($(e).text() !== "") {
 
-      let text = ($(e).text() !== "") ? $(e).text() : $(e).attr('placeholder');
-      // console.log(text);
-      var matches = text.match(/\[(.*?)\]/);
+    let text = ($(e).text() !== "") ? $(e).text() : $(e).attr('placeholder');
+    // console.log(text);
+    var matches = text.match(/\[(.*?)\]/);
+    if (text !== undefined && matches !== null){
       // console.log(matches);
       let new_text = text.replace(matches[0], translations[matches[1]][lang]);
       // console.log(new_text);
       ($(e).text() !== "") ? $(e).text(new_text) : $(e).attr('placeholder', new_text);
-    // }
+    }
   });
 
 }
