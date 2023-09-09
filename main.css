@@ -97,7 +97,7 @@ nav{
   display: inline-block;
 }
 
-.mobile-menu{
+#mobile-menu{
   display: none;
   text-transform: uppercase;
   color: #28282E;
@@ -109,6 +109,10 @@ nav{
   position: absolute;
   right: 3em;
   text-decoration: none;
+}
+
+#menu-mobile-button{
+  display: none;
 }
 
 nav a{
@@ -152,13 +156,19 @@ a.logout:visited,a.logout:active{}
   display: inline-block;
   vertical-align: top;
   margin-right: 0;
-  position: absolute;
-  right: 3em;
+  padding: 1em 2em;
 }
 
 .menu-lang a.menu-items {
-  padding: 1em 0;
   margin-left: 0.5em;
+  padding: 0;
+}
+
+
+.signature{
+  font-size: 11px;
+  position: relative;
+  top: 2em;
 }
 /* --------------------------- NAVIGATION ------------------------------*/
 
@@ -310,6 +320,10 @@ span.confirmado_nao {
   text-align: center;
 }
 
+.monograma img{
+  width: 23px;
+}
+
 .noiva, .noivo{
   font-family: Avenir;
   font-style: normal;
@@ -324,13 +338,6 @@ span.confirmado_nao {
 }
 
 /* --------------------------- CONTACTOS ------------------------------*/
-
-.signature{
-  font-size: 11px;
-  margin-top: 88px;
-  padding-bottom: 2em;
-}
-
 
 
 /* --------------------------- MODALS ------------------------------*/
@@ -463,105 +470,155 @@ p.loading-txt {
 
 /* --------------------------- MEDIA QUERIES ---------------------------*/
 
-@media all and (max-width: 1199px) {
-  .sidebar{
-    position: absolute;
+@media all and (max-width: 1024px) {
+
+  #mobile-menu{
+    display: block;
+  }
+
+  #menu-normal{
+    display: none;
+  }
+
+  .navbar{
+    position: fixed !important;
     background: #f9f9f9;
-    box-shadow: 2px 2px 30px rgb(0 0 0 / 20%);
     z-index: 99999999999999999;
-    padding: 2em;
     height: 100%;
     margin-top: 0;
-    display: none;
-    right: 0;
+    right: 0 !important;
     width: 320px;
+    top: 0;
+    bottom: 0;
+    padding: 2em;
+    width: 100%;
+    height: 100vh;
+  }
+  nav a{
+    padding: 1em 0;
   }
 
-  .header-plant{
-    left: -9em;
-  }
-
-  .content{
-    padding: 0 8em;
-  }
-
-  .header-monograma{
-    display: none;
-  }
-
-  .mobile-menu{
+  #menu img,
+  #menu a,
+  #menu div,
+  #menu p{
     display: block;
   }
 
-  .convite-step{
-    flex: 1 0 50%;
+  .menu-lang{
+    position: initial;
+    padding: 1em 0;
+  }
+  .menu-lang a{
+    display: inline-block !important;
+    margin-left: 0 !important;
   }
 
-  .footer-plant{
-    right: -4em;
+  .menu-lang a:nth-child(2){
+    margin-left: 1em !important;
   }
 
-}
-
-@media all and (max-width: 799px) {
-
-
-  .content{
-    padding:0 2em;
+  .close-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em 0;
   }
 
-  .header-plant{
-    left: -13em;
+  .close-icon img{
+    height: 100% !important;
   }
 
-  .calligraphy{
-    font-size: 44px;
+  .signature {
+    margin-top: 4em;
   }
 
-  .container-igreja{
-    margin-bottom: 2em;
-  }
-
-  .container-igreja,
-  .container-quinta{
+  #menu-mobile-button{
     display: block;
+    position: fixed;
+    bottom: 0;
+    padding: 0.5em;
+    margin: 1em;
+    right: 0;
+    background: white;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #28282E;
+    font-weight: normal;
+    border: 1px solid #28282E;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  #menu-mobile-button img {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 16px;
+  }
+
+  body{
+    padding-bottom: 8em;
+  }
+
+  .page-section#contactos{
+    margin-bottom: 8em;
+  }
+
+  .hello {
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #28282E;
+    font-weight: normal;
+    margin-top: 2em;
+    padding-left: 32px;
+    position: initial;
+  }
+
+  .container {
+    position: initial;
+    width: 100vw;
+    margin-top: 1em;
+    top: auto;
     height: auto;
   }
 
-  .container-igreja .img,
-  .container-quinta .img{
-    height: 180px;
-    background-position: center center;
+  .content {
+    min-height: 1em;
+    display: flex;
+    flex-direction: column;
   }
 
-    .container-igreja .location-details,
-    .container-quinta .location-details{
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 4px #C3AD72 solid;
-    padding-top: 1em;
-    text-align: left;
+  .page-section {
+    padding: 0 2em;
+    flex: 100% 1 0;
+    flex-direction: column;
+    margin-top: 4em;
   }
 
-  .footer-plant{
-    right: -8em;
+  .page-section:first-child{
+    margin-top: 1em;
   }
 
-  .convite-step{
-    flex: 1 0 100%;
-    text-align: center;
-    margin-bottom: 2em;
+  .container-quinta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .convite-step img {
-    height: 112px;
+  .container-quinta img {
+    width: 100%;
+  }
+
+  .container-quinta .location-details {
     display: block;
-    margin: auto;
-    margin-bottom: 1em;
+    padding: 0;
+    border: none;
+    margin: 0;
+    text-align: left;
+    margin-top: 1em;
   }
 
   .modal-overlay{
@@ -572,10 +629,6 @@ p.loading-txt {
     width: 90% !important;
     padding: 1.5em;
     margin-top: 2em;
-  }
-
-  .mobile-menu {
-    right: 1.5em;
   }
 
   .form-container{

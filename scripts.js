@@ -1,11 +1,12 @@
 // common
 
-let alergies_placeholder = "Exemplos: vegetariano, vegan, glúten, lactose, leite, ovo, marisco, peixe, amendoim e frutos secos, soja...";
-$(".alergies").attr("placeholder", alergies_placeholder);
-message = "Aqui tens uma área dedicada à confirmação da tua presença, e também à da tua família, a quem estendemos o convite com todo o gosto!";
-message_solo = "Aqui tens uma área dedicada à confirmação da tua presença.";
+//let alergies_placeholder = "Exemplos: vegetariano, vegan, glúten, lactose, leite, ovo, marisco, peixe, amendoim e frutos secos, soja...";
+//$(".alergies").attr("placeholder", alergies_placeholder);
+// message = "";
+// message_solo = "Aqui tens uma área dedicada à confirmação da tua presença.";
 
 // functions
+
 
 function fetch(user) {
   let gid = user.fields.GID;
@@ -35,6 +36,7 @@ function start(user) {
       // console.log("cache");
       users = JSON.parse(getCookie("casamentogoma.com-users"));
       populateInfo(user, users);
+
       return users;
     }
     else {
@@ -42,27 +44,40 @@ function start(user) {
       $("#modal-loading").show();
       fetch(user);
     }
+    localize();
   }
 }
 
 function populateInfo(mainuser, users) {
   // console.log(users);
-  $("#welcome").html("Olá, "+mainuser.fields.name+".");
+  // let lang = getLanguage();
+  // console.log(HI[lang]);
+  first_name = mainuser.fields.name.split(" ");
+  $("#welcome").html(`[HI], ${first_name[0]}.`);
   $("#cards-row").html("");
   plusone = false;
+  user_ids = [];
   $.each(users.reverse(), function(index, user){
-    var name = (!user.fields.name || user.fields.name == "") ? ((user.fields.type == 'plusone') ? "Plus One" : "Filho/a") : user.fields.name ;
-    var confirmed = (user.fields.confirmed) ? (user.fields.confirmed == "Sim" ? "<span class='confirmado'>✔ Confirmado</span>" : "<span class='confirmado_nao'>✕ Não posso ir</span>") : '<span>&nbsp;</span>';
-    var confirm_btn = (user.fields.confirmed) ? "Alterar confirmação" : 'Confirmar presença';
+    var name = (!user.fields.name || user.fields.name == "") ? ((user.fields.type == 'plusone') ? "Plus One" : "[child]") : user.fields.name ;
+    var confirmed = (user.fields.confirmed) ? (user.fields.confirmed == "Sim" ? "<span class='confirmado localize'>✔ [rsvp_going]</span>" : "<span class='confirmado_nao localize'>✕ [rsvp_not_going]</span>") : '<span>&nbsp;</span>';
+    var confirm_btn = (user.fields.confirmed) ? "[rsvp_change_btn]" : '[rsvp_confirm_btn]';
     var confirm_btn_class = (user.fields.confirmed) ? "btn-primary" : "btn-primary";
     $("#cards-row").append('<div class="card">'+
       '<h6>'+name+'</h6>'+
       confirmed+
-      '<button type="button" name="button" usertype="'+user.fields.type+'" userid="'+user.id+'" class="'+confirm_btn_class+' confirm">'+confirm_btn+'</button>'+
+      '<button type="button" name="button" usertype="'+user.fields.type+'" userid="'+user.id+'" class="localize '+confirm_btn_class+' confirm">'+confirm_btn+'</button>'+
     '</div>');
     if (user.fields.type == 'plusone') plusone = true;
+
+    user_ids.push(user.id);
   });
-  (!plusone && users.length > 1) ? $("#message").text(message) : $("#message").text(message_solo);
+  (!plusone && users.length > 1) ? $("#message").text("[rsvp_group_message]") : $("#message").text("[rsvp_solo_message]");
+
+  $("#user_id").val(user_ids);
+
+  localize();
+  setTimeout(localize(), 5000);
+
 }
 
 function hideForms() {
@@ -76,25 +91,30 @@ function formSubmit(target) {
   $("#modal-loading").show();
   $("#modal-overlay").hide();
   // console.log(target);
+  // console.log($('#'+target).serializeArray());
   var form = $('#'+target).serializeArray().reduce(function(obj, item) {
     obj[item.name] = item.value;
     return obj;
   }, {});
-  // let id = $('#'+target+' #id').val();
-  let data = {'fields': form};
-  console.log(data);
+  let id;
+  let data;
+  // console.log(data);
   if(target=="contribution"){
+    let data = {'fields': form};
     addContributionRecord(data, function(data){
       console.log("success");
       // refresh
+      location.reload();
       // fetch(user);
-      $("#modal-overlay").hide();
+      // $(".modal-overlay").hide();
     }, function(){
       // console.log("error");
-      $("#modal-overlay").hide();
+      $(".modal-overlay").hide();
     })
   }
   else {
+    let id = $('#'+target+' #id').val();
+    let data = {'id': id, 'fields': form};
     updateUserRecord(data, function(data){
       // console.log("success");
       fetch(user);
@@ -105,6 +125,23 @@ function formSubmit(target) {
     })
   }
 }
+
+function onlyUnique(value, index, array) {
+  return array.indexOf(value) === index;
+}
+
+getActiveFAQs(function(data){
+  // console.log(data);
+  let lang = getLanguage();
+  $.each(data.records.reverse(), function(key, record){
+    // console.log(record.fields.pergunta);
+    let faq = `<div class="faq-card">
+      <h6>${record.fields["pergunta_"+lang]}</h6>
+      <p>${record.fields["resposta_"+lang]}</p>
+    </div>`;
+    $(faq).insertBefore('#ghost');
+  });
+});
 
 // listners
 
@@ -161,15 +198,19 @@ $(".menu-items").click(function(e){
       scrollTop: $(e.target.id).offset().top
   }, 500);
   // console.log($(".sidebar").css("position"));
-  if($(".sidebar").css("position") == "absolute"){
-    $(".sidebar").hide();
-  }
+  // if($(".sidebar").css("position") == "absolute"){
+  //   $(".sidebar").hide();
+  // }
+  $("#mobile-menu").hide();
 });
 
-
-$(".mobile-menu").click(function(e){
-  $(".sidebar").show();
+$("#menu-mobile-button").click(function(){
+  $("#mobile-menu").show();
 });
+
+$(".close-icon").click(function(){
+  $("#mobile-menu").hide();
+})
 
 click = false;
 
@@ -193,8 +234,11 @@ setInterval(function(){
 }, 500);
 
 $("body").on("click", ".contribute", function(e){
+  console.log(e.target);
+  console.log($(e.target).attr("gift_id"));
+  $("#gift_id").val($(e.target).attr("gift_id"))
+  $("#gifts").val($(e.target).attr("gifts_id"));
   $("#modal-overlay").show();
-
 });
 
 // start
@@ -205,14 +249,4 @@ $("#modal-overlay").hide();
 let user = JSON.parse(getCookie("casamentogoma.com-user"));
 var users = start(user);
 
-getActiveFAQs(function(data){
-  // console.log(data);
-  $.each(data.records.reverse(), function(key, record){
-    // console.log(record.fields.pergunta);
-    let faq = '<div class="faq-card">'+
-      '<h6>'+record.fields.pergunta+'</h6>'+
-      '<p>'+record.fields.resposta+'</p>'+
-    '</div>';
-    $(faq).insertBefore('#ghost');
-  });
-});
+// common

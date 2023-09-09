@@ -49,22 +49,25 @@
 
           <h2 class="hello" id="welcome">Olá, [FirstName].</h2>
 
-          <section id="gifts" class="page-section">
+          <section id="gifts_container" class="page-section">
 
           </section>
 
           <script type="text/javascript">
             getGifts(function(data){
-              console.log(data.records);
+              // console.log(data.records);
               var gifts = "";
               data.records.forEach((entry, i) => {
                 var gift = entry.fields;
-                var contributors = gift.contributors.join(", ");
+                // console.log(typeof gift.contributors);
+                var contributors = (gift.contributors !== undefined) ? gift.contributors.join(", ") : [];
+                let unique = [...new Set(gift.contributors)];
                 let contributions = 0;
-                gift.contributions.map(x => contributions += x);
+                // console.log(gift.contributions);
+                (gift.contributions) ? gift.contributions.map(x => contributions += x) : 0;
                 let percent = Math.round(contributions*100/gift.value);
                 var g = `
-                <div id="${entry.id}" style="display:flex;">
+                <div id="${entry.id}" style="display:flex; margin-bottom:30px;">
                   <div id="left" >
                     <img src="${gift.images[0].url}" />
                   </div>
@@ -79,11 +82,11 @@
                     </div>
                     <h2>Preço: €${gift.value}</h2>
                     <h2>Contribuições: €${contributions}</h2>
-                    <span>${contributors}</span>
-                    <button class="contribute">Contribuir</button>
+                    <span>${unique.join(", ")}</span>
+                    <button type="button" name="button" class="contribute" gift_id="${gift.ID}" gifts_id="${entry.id}">Contribuir</button>
                   </div>
                 </div>`;
-                $("#gifts").append(g);
+                $("#gifts_container").append(g);
                 $(".progress-bar").ProgressBar();
               });
             });
@@ -140,6 +143,10 @@
             </div>
 
             <!-- <input type="hidden" id="id" value="" /> -->
+            <input type="hidden" id="user_id" name="user_id" value="" />
+            <input type="hidden" id="confirmed" name="confirmed" value="false">
+            <input type="hidden" id="gift_id" name="gift_id" value="">
+            <input type="hidden" id="gifts" name="gifts" value="">
           </form>
 
         </div>

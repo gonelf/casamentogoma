@@ -161,6 +161,7 @@ input.email-input:visited{
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
 }
 
 .modal-card{
@@ -200,6 +201,89 @@ img#error {
   margin: 2em 0;
 }
 
+/* --------------------------- NAVIGATION ------------------------------*/
+
+.navbar{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  padding: 2em;
+  z-index: 999999999999;
+  padding-bottom: 3em;
+}
+
+nav{
+  position: relative;
+}
+
+.navbar img{
+  height: 56px;
+  display: inline-block;
+}
+
+.mobile-menu{
+  display: none;
+  text-transform: uppercase;
+  color: #28282E;
+  font-weight: 600;
+  font-size: 16px;
+  margin:0;
+  margin-bottom: 2em;
+  letter-spacing: 0.1em;
+  position: absolute;
+  right: 3em;
+  text-decoration: none;
+}
+
+nav a{
+  text-transform: uppercase;
+  color: #28282E;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 2em;
+  letter-spacing: 0.1em;
+  vertical-align: top;
+}
+
+nav a img{
+  height: 16px !important;
+  vertical-align: -1px;
+}
+
+nav a:hover{
+  color: black !important;
+  font-weight: 600 !important;
+  text-decoration: overline;
+}
+
+nav a:visited{
+  color: purple;
+  font-weight: 600;
+}
+
+.active{
+  color: black !important;
+  font-weight: 600 !important;
+}
+
+a.logout{}
+a.logout:visited,a.logout:active{}
+
+.menu-lang {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0;
+  position: absolute;
+  right: 3em;
+}
+
+.menu-lang a.menu-items {
+  padding: 1em 0;
+  margin-left: 0.5em;
+}
 /* --------------------------- MODAL ------------------------------*/
 
 

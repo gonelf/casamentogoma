@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <title>Go•Ma - Mariana & Gonçalo</title>
-  <meta name="description" content="Cátia e José – Save the Date">
+  <meta name="description" content="Go•Ma - Mariana & Gonçalo">
   <meta name="author" content="GoMa Studios">
   <link rel="stylesheet" href="general.css">
   <link rel="stylesheet" href="main.css">
@@ -16,64 +16,90 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellota+Text">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="animations.js"></script>
+  <script type="text/javascript" src="localization.js"></script>
 </head>
   <body>
     <div class="wrapper" id="wrapper">
-      <div class="navbar">
+      <div class="navbar" id="menu-normal">
         <nav id="menu">
           <img src="img/goma-subtract.svg" alt="GoMa">
-          <a href="#top" id="#presenca" class="menu-items active">Presença</a>
-          <a href="#localizacao" id="#localizacao" class="menu-items">Localização</a>
-          <a href="#faqs" id="#faqs" class="menu-items">FAQs</a>
-          <a href="#contactos" id="#contactos" class="menu-items">Contactos</a>
-          <a href="gifts.html" id="#gifts" class="menu-items" target="_blank">Presentes <img src="img/new-tab.svg" alt="Opens in a new tab"></a>
-          <a href="index.html" class="logout">Sair</a>
+          <a href="#top" id="#presenca" class="menu-items localize active">[menu_rsvp]</a>
+          <a href="#localizacao" id="#localizacao" class="menu-items localize">[menu_location]</a>
+          <a href="#faqs" id="#faqs" class="menu-items localize">[menu_faqs]</a>
+          <a href="#contactos" id="#contactos" class="menu-items localize">[menu_contacts]</a>
+          <!-- <a href="gifts.html" id="#gifts" class="menu-items localize" target="_blank">[menu_gifts] <img src="img/new-tab.svg" alt="Opens in a new tab"></a> -->
+          <a href="index.html" class="logout localize">[menu_logout]</a>
 
           <div class="menu-lang">
-            <a href="" class="menu-items">PT</a>
-            <a href="" class="menu-items">EN</a>
+            <a href="?lang=pt" class="menu-items">PT</a>
+            <a href="?lang=en" class="menu-items">EN</a>
           </div>
-        </nav>
 
+          <p class="signature">Made with ♥ by GoMa, 2023.</p>
+        </nav>
       </div>
 
-      <h2 class="hello" id="welcome">Olá, [FirstName].</h2>
+      <div class="navbar" id="mobile-menu" style="display:none;">
+        <nav id="menu">
+
+          <a href="#" class="close-icon"><img src="img/close.svg" alt="Close"></a>
+
+          <a href="#top" id="#presenca" class="menu-items localize active">[menu_rsvp]</a>
+          <a href="#localizacao" id="#localizacao" class="menu-items localize">[menu_location]</a>
+          <a href="#faqs" id="#faqs" class="menu-items localize">[menu_faqs]</a>
+          <a href="#contactos" id="#contactos" class="menu-items localize">[menu_contacts]</a>
+          <!-- <a href="gifts.html" id="#gifts" class="menu-items localize" target="_blank">[menu_gifts] <img src="img/new-tab.svg" alt="Opens in a new tab"></a> -->
+          <a href="index.html" class="logout localize">[menu_logout]</a>
+
+          <div class="menu-lang">
+            <a href="?lang=pt" class="menu-items">PT</a>
+            <a href="?lang=en" class="menu-items">EN</a>
+          </div>
+
+          <p class="signature">Made with ♥ by GoMa, 2023.</p>
+        </nav>
+      </div>
+
+      <h2 class="hello localize" id="welcome">[HI], [FirstName].</h2>
+      <a id="menu-mobile-button" style="cursor:pointer">
+        <img src="img/menu-icon.svg" alt="Menu">
+        Menu
+      </a>
+
       <section id="presenca" class="container">
         <div class="content" id="top">
           <section class="page-section">
-            <h3>A tua presença</h3>
+            <h3 class="localize">[RSVP]</h3>
             <p>
-              <span id="message"></span>
+              <span class="localize" id="message"></span>
               <br>
-              Por favor, confirma até dia <u>28 de Setembro</u>!</p>
+              <span class="localize">[rsvp_message]</span> <u class="localize">[month]</u>!</p>
               <div class="cards-row" id="cards-row">
 
               </div>
           </section>
 
           <section id="localizacao" class="page-section">
-            <h3>Localização</h3>
+            <h3 class="localize">[menu_location]</h3>
             <div class="container-quinta">
               <img src="img/casadasgaeiras.png" alt="Casa das Gaeiras, Óbidos">
               <div class="location-details">
                 <p class="location-title">Casa das Gaeiras, 15:00</p>
                 <p>Rua Principal, 41 <br>2510-729 Gaeiras</p>
                 <br>
-                <a href="https://goo.gl/maps/neNPfet3L5Ms5j4b9" target="_blank" class="link-mapa">Mapa</a>
+                <a href="https://goo.gl/maps/8jDPgJcjhEUCMseE8" target="_blank" class="link-mapa localize">[map]</a>
                 <br>
                 <br>
-                <p class="location-title">Como chegar?</p>
-                <p>De Lisboa: A8, saída 17 <br>
-                  Do Porto: A1, A17 e A8, saída 17</p>
+                <p class="location-title localize">[how_to_get]</p>
+                <p><span class="localize">[from_lisbon]</span><br><span class="localize">[from_oporto]</span></p>
               </div>
             </div>
           </section>
 
           <section id="faqs" class="page-section">
-            <h3>Perguntas Frequentes</h3>
-            <p>Gostávamos de usar este espaço para tentar responder às perguntas
-              mais frequentes que nos têm feito. Esperamos que vos seja útil! <br>
-            Se ainda tiveres alguma dúvida ou questão, não hesites e <a href="#contactos">contacta-nos!</a></p>
+            <h3 class="localizacao localize">[menu_faqs]</h3>
+            <p><span class="localize">[faqs_message_1]</span> <br>
+            <span class="localize">[faqs_message_2]</span> <a href="#contactos" class="localize">[contact_us]</a></p>
             <div class="cards-row" id="FAQs">
               <!-- FAQs enter here -->
               <div class="faq-card" id="ghost">
@@ -84,15 +110,14 @@
           </section>
 
           <section id="contactos" class="page-section">
-            <h3>Contactos</h3>
-            <p>Ficaste com alguma dúvida ou precisas de ajuda com algo? Fica à vontade para nos contactares, caso necessites.</p>
+            <h3 class="localize">[menu_contacts]</h3>
+            <p class="localize">[contacts_message]</p>
             <div class="contactos">
               <div class="contacto-noiva">
                 <img src="img/mariana.png" alt="Mariana" height="200px">
                 <p class="noiva">Mariana</p>
                 <a href="tel:+351916281236">916 281 236</a>
               </div>
-
               <div class="contacto-noivo">
                 <img src="img/goncalo2.png" alt="Mariana" height="200px">
                 <p class="noivo">Gonçalo</p>
@@ -100,14 +125,13 @@
               </div>
             </div>
           </section>
-          <p class="signature">Made with ♥ by GoMa, 2023.</p>
         </div>
       </section>
 
       <div class="modal-overlay" id="modal-loading">
         <div class="modal-card modal-loading">
           <img id="loading" src="img/origami.gif" />
-          <p class="loading-txt">A verificar a lista de convidados...</p>
+          <p class="loading-txt localize">[loading...]</p>
         </div>
       </div>
 
@@ -120,30 +144,30 @@
             <div class="form-container">
 
               <div class="form-field" id="field-presenca">
-                <label for="confirmed" class="form-label">Presença</label>
+                <label for="confirmed" class="form-label localize">[menu_rsvp]</label>
                 <div class="radio-container">
-                  <label for="Sim" class="radio-label"><input type="radio" class="confirm_Sim" name="confirmed" value="Sim" required />Sim, confirmo!</label>
-                  <label for="Nao" class="radio-label"><input type="radio" class="confirm_Nao" name="confirmed" value="Nao" required />Não posso ir :(</label>
+                  <label for="Sim" class="radio-label"><input type="radio" class="confirm_Sim" name="confirmed" value="Sim" required /><span class="localize">[rsvp_yes]</span></label>
+                  <label for="Nao" class="radio-label"><input type="radio" class="confirm_Nao" name="confirmed" value="Nao" required /><span class="localize">[rsvp_no]</span></label>
                 </div>
               </div>
 
               <div class="form-field other-fields">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" id="email" value="" placeholder="O teu email" required />
+                <input type="email" name="email" id="email" class="localize" value="" placeholder="[email_placeholder]" required />
               </div>
 
               <div class="form-field other-fields">
-                <label for="phone" class="form-label">Telemóvel</label>
-                <input type="text" name="phone" id="phone" value="" placeholder="O teu número" required />
+                <label for="phone" class="form-label localize">[phone_label]</label>
+                <input type="text" name="phone" id="phone" class="localize" value="" placeholder="[phone_placeholder]" required />
               </div>
 
               <div class="form-field other-fields">
-                <label for="alergies" class="form-label">Existe alguma restrição alimentar?</label>
-                <textarea name="alergies" id="alergies" class="alergies" rows="2" placeholder=""></textarea>
+                <label for="alergies" class="form-label localize">[alergies_label]</label>
+                <textarea name="alergies" id="alergies" class="alergies localize" rows="2" placeholder="[alergies_placeholder]"></textarea>
               </div>
             </div>
             <div class="button-container">
-              <button type="submit" id="adulto-submit" name="adulto" class="btn-primary btn-form">Confirmar</button>
+              <button type="submit" id="adulto-submit" name="adulto" class="btn-primary btn-form localize">[confirm_btn]</button>
             </div>
 
             <input type="hidden" id="id" value="" />
@@ -154,30 +178,30 @@
             <div class="form-container">
 
               <div class="form-field">
-                <label for="presenca" class="form-label">Presença</label>
+                <label for="presenca" class="form-label localize">[menu_rsvp]</label>
                 <div class="radio-container">
-                  <label for="Sim" class="radio-label"><input type="radio" class="confirm_Sim" name="confirmed" value="Sim" required>Sim, levo uma pessoa!</label>
-                  <label for="Nao" class="radio-label"><input type="radio" class="confirm_Nao" name="confirmed" value="Nao" required>Não levo ninguém.</label>
+                  <label for="Sim" class="radio-label"><input type="radio" class="confirm_Sim" name="confirmed" value="Sim" required><span class="localize">[plusone_yes]</span></label>
+                  <label for="Nao" class="radio-label"><input type="radio" class="confirm_Nao" name="confirmed" value="Nao" required><span class="localize">[plusone_no]</span></label>
                 </div>
               </div>
 
               <div class="form-field other-fields">
-                <label for="name" class="form-label">Nome</label>
-                <input type="text" id="name" name="name" value="" placeholder="O nome do teu plus one">
+                <label for="name" class="form-label localize">[name_label]</label>
+                <input type="text" id="name" name="name" class="localize" value="" placeholder="[name_placeholder]">
               </div>
 
               <div class="form-field other-fields">
-                <label for="phone" class="form-label">Telemóvel</label>
-                <input type="tel" id="phone" name="phone" value="" placeholder="O número do teu plus one">
+                <label for="phone" class="form-label localize">[phone_label]</label>
+                <input type="tel" id="phone" name="phone" class="localize" value="" placeholder="[phone_plusone_placeholder]">
               </div>
 
               <div class="form-field other-fields">
-                <label for="alergias" class="form-label">Existe alguma restrição alimentar?</label>
-                <textarea id="alergies" name="alergies" class="alergies" rows="2" required placeholder=""></textarea>
+                <label for="alergias" class="form-label localize">[alergies_label]</label>
+                <textarea id="alergies" name="alergies" class="alergies localize" rows="2" required placeholder="[alergies_placeholder]"></textarea>
               </div>
             </div>
             <div class="button-container">
-              <button type="submit" name="plusone" class="btn-primary btn-form">Confirmar</button>
+              <button type="submit" name="plusone" class="btn-primary btn-form localize">[confirm_btn]</button>
             </div>
 
             <input type="hidden" id="id" value="" />
@@ -188,29 +212,29 @@
             <div class="form-container">
 
               <div class="form-field">
-                <label for="presenca" class="form-label">Presença</label>
+                <label for="presenca" class="form-label localize">[menu_rsvp]</label>
                 <div class="radio-container">
-                  <label for="Sim" class="radio-label"><input type="radio" class="confirm_Sim" name="confirmed" value="Sim" required>Sim, confirmo!</label>
-                  <label for="Nao" class="radio-label"><input type="radio" class="confirm_Nao" name="confirmed" value="Nao" required>Não pode vir :(</label>
+                  <label for="Sim" class="radio-label"><input type="radio" class="confirm_Sim" name="confirmed" value="Sim" required><span class="localize">[rsvp_kid_yes]</span></label>
+                  <label for="Nao" class="radio-label"><input type="radio" class="confirm_Nao" name="confirmed" value="Nao" required><span class="localize">[rsvp_kid_no]</span></label>
                 </div>
               </div>
 
               <div class="form-field">
-                <label for="idade" class="form-label">Idade</label>
+                <label for="idade" class="form-label localize">[age_label]</label>
                 <div class="radio-container">
-                  <label for="under3" class="radio-label"><input type="radio" class="age_3" name="age" value="3" required>3 anos ou menor</label>
-                  <label for="4to8" class="radio-label"><input type="radio" class="age_4-8" name="age" value="4-8" required>Entre 4 e 8 anos</label>
-                  <label for="8plus" class="radio-label"><input type="radio" class="age_8" name="age" value="8" required>Maior de 8 anos</label>
+                  <label for="under3" class="radio-label"><input type="radio" class="age_3" name="age" value="3" required><span class="localize">[age_kid_option_1]</span> </label>
+                  <label for="4to8" class="radio-label"><input type="radio" class="age_4-8" name="age" value="4-8" required><span class="localize">[age_kid_option_2]</span> </label>
+                  <label for="8plus" class="radio-label"><input type="radio" class="age_8" name="age" value="8" required><span class="localize">[age_kid_option_3]</span> </label>
                 </div>
               </div>
 
               <div class="form-field other-fields">
-                <label for="alergias" class="form-label">Existe alguma restrição alimentar?</label>
-                <textarea id="alergies" name="alergies" class="alergies" rows="2" required placeholder=""></textarea>
+                <label for="alergias" class="form-label localize">[alergies_label]</label>
+                <textarea id="alergies" name="alergies" class="alergies localize" rows="2" required placeholder="[alergies_placeholder]"></textarea>
               </div>
             </div>
             <div class="button-container">
-              <button type="submit" name="kid-known" class="btn-primary btn-form">Confirmar</button>
+              <button type="submit" name="kid-known" class="btn-primary btn-form localize">[confirm_btn]</button>
             </div>
 
             <input type="hidden" id="id" value="" />
@@ -222,34 +246,34 @@
             <div class="form-container">
 
               <div class="form-field">
-                <label for="presenca" class="form-label">Presença</label>
+                <label for="presenca" class="form-label localize">[menu_rsvp]</label>
                 <div class="radio-container">
-                  <label for="Sim" class="radio-label"><input type="radio" class="confirm_Sim" name="confirmed" value="Sim" required>Sim, confirmo!</label>
-                  <label for="Nao" class="radio-label"><input type="radio" class="confirm_Nao" name="confirmed" value="Nao" required>Não pode vir :(</label>
+                  <label for="Sim" class="radio-label"><input type="radio" class="confirm_Sim" name="confirmed" value="Sim" required><span class="localize">[rsvp_kid_yes]</span> </label>
+                  <label for="Nao" class="radio-label"><input type="radio" class="confirm_Nao" name="confirmed" value="Nao" required><span class="localize">[rsvp_kid_no]</span> </label>
                 </div>
               </div>
 
               <div class="form-field other-fields">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" id="name" name="name" value="" placeholder="O nome da criança">
+                <label for="nome" class="form-label localize">[name_label]</label>
+                <input type="text" id="name" name="name" class="localize" value="" placeholder="[kid_name]">
               </div>
 
               <div class="form-field">
-                <label for="idade" class="form-label">Idade</label>
+                <label for="idade" class="form-label localize">[age_label]</label>
                 <div class="radio-container">
-                  <label for="under3" class="radio-label"><input type="radio" class="age_3" name="age" value="3" required>3 anos ou menor</label>
-                  <label for="4to8" class="radio-label"><input type="radio" class="age_4-8" name="age" value="4-8" required>Entre 4 e 8 anos</label>
-                  <label for="8plus" class="radio-label"><input type="radio" class="age_8" name="age" value="8" required>Maior de 8 anos</label>
+                  <label for="under3" class="radio-label"><input type="radio" class="age_3" name="age" value="3" required><span class="localize">[age_kid_option_1]</span></label>
+                  <label for="4to8" class="radio-label"><input type="radio" class="age_4-8" name="age" value="4-8" required><span class="localize">[age_kid_option_2]</span></label>
+                  <label for="8plus" class="radio-label"><input type="radio" class="age_8" name="age" value="8" required><span class="localize">[age_kid_option_3]</span></label>
                 </div>
               </div>
 
               <div class="form-field other-fields">
-                <label for="alergias" class="form-label">Existe alguma restrição alimentar?</label>
-                <textarea id="alergies" name="alergies" class="alergies" rows="2" required placeholder=""></textarea>
+                <label for="alergias" class="form-label localize">[alergies_label]</label>
+                <textarea id="alergies" name="alergies" class="alergies localize" rows="2" required placeholder="[alergies_placeholder]"></textarea>
               </div>
             </div>
             <div class="button-container">
-              <button type="submit" name="kid-unknown" class="btn-primary btn-form">Confirmar</button>
+              <button type="submit" name="kid-unknown" class="btn-primary btn-form localize">[confirm_btn]</button>
             </div>
 
             <input type="hidden" id="id" value="" />
