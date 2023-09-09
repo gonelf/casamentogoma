@@ -526,8 +526,13 @@ p.loading-txt {
     position: absolute;
     top: 0;
     right: 0;
-    width: 32px;
+    padding: 1em 0;
   }
+
+  .close-icon img{
+    height: 100% !important;
+  }
+
   .signature {
     margin-top: 4em;
   }
@@ -548,6 +553,12 @@ p.loading-txt {
     font-weight: normal;
     border: 1px solid #28282E;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  #menu-mobile-button img {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 16px;
   }
 
   body{
