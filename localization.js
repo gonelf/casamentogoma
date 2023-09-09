@@ -37,6 +37,7 @@ let translations = {
   "rsvp_confirm_btn": {"pt": "Confirmar presença", "en": "Confirm RSVP"},
   "rsvp_change_btn": {"pt": "Alterar confirmação", "en": "Change RSVP"},
   // location
+  "map": {"pt": "Mapa", "en": "Map"},
   "how_to_get": {"pt": "Como chegar?", "en": "How to get there?"},
   "from_lisbon": {"pt": "De Lisboa: A8, saída 17", "en": "From Lisbom: A8, exit 17"},
   "from_oporto": {"pt": "Do Porto: A1, A17 e A8, saída 17", "en": "From Oporto: A1, A17 e A8, exit 17"},
