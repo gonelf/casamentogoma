@@ -485,7 +485,7 @@ p.loading-txt {
   }
 
   .navbar{
-    position: absolute;
+    position: fixed !important;
     background: #f9f9f9;
     z-index: 99999999999999999;
     height: 100%;
@@ -499,7 +499,7 @@ p.loading-txt {
     height: 100vh;
   }
   nav a{
-    padding: 1em;
+    padding: 1em 0;
   }
 
   #menu img,
@@ -511,12 +511,23 @@ p.loading-txt {
 
   .menu-lang{
     position: initial;
+    padding: 1em 0;
   }
   .menu-lang a{
     display: inline-block !important;
+    margin-left: 0 !important;
+  }
+
+  .menu-lang a:nth-child(2){
     margin-left: 1em !important;
   }
 
+  .close-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+  }
   .signature {
     margin-top: 4em;
   }
