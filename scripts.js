@@ -52,7 +52,8 @@ function populateInfo(mainuser, users) {
   // console.log(users);
   // let lang = getLanguage();
   // console.log(HI[lang]);
-  $("#welcome").html(`[HI], ${mainuser.fields.name}.`);
+  first_name = mainuser.fields.name.split(" ");
+  $("#welcome").html(`[HI], ${first_name[0]}.`);
   $("#cards-row").html("");
   plusone = false;
   user_ids = [];
@@ -197,15 +198,19 @@ $(".menu-items").click(function(e){
       scrollTop: $(e.target.id).offset().top
   }, 500);
   // console.log($(".sidebar").css("position"));
-  if($(".sidebar").css("position") == "absolute"){
-    $(".sidebar").hide();
-  }
+  // if($(".sidebar").css("position") == "absolute"){
+  //   $(".sidebar").hide();
+  // }
+  $("#mobile-menu").hide();
 });
 
-
-$(".mobile-menu").click(function(e){
-  $(".sidebar").show();
+$("#menu-mobile-button").click(function(){
+  $("#mobile-menu").show();
 });
+
+$(".close-icon").click(function(){
+  $("#mobile-menu").hide();
+})
 
 click = false;
 
