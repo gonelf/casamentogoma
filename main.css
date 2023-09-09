@@ -111,6 +111,10 @@ nav{
   text-decoration: none;
 }
 
+#menu-mobile-button{
+  display: none;
+}
+
 nav a{
   text-transform: uppercase;
   color: #28282E;
@@ -152,13 +156,12 @@ a.logout:visited,a.logout:active{}
   display: inline-block;
   vertical-align: top;
   margin-right: 0;
-  position: absolute;
-  right: 3em;
+  padding: 1em 2em;
 }
 
 .menu-lang a.menu-items {
-  padding: 1em 0;
   margin-left: 0.5em;
+  padding: 0;
 }
 
 
@@ -516,6 +519,24 @@ p.loading-txt {
 
   .signature {
     margin-top: 4em;
+  }
+
+  #menu-mobile-button{
+    display: block;
+    position: fixed;
+    bottom: 0;
+    padding: 0.5em;
+    margin: 1em;
+    right: 0;
+    background: white;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #28282E;
+    font-weight: normal;
+    border: 1px solid #28282E;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
   }
 
   body{
