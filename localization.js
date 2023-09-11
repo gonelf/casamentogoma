@@ -76,7 +76,7 @@ let translations = {
   "age_kid_option_2": {"pt": "Entre 4 e 8 anos", "en": "between 4 and 8 yo"},
   "age_kid_option_3": {"pt": "Maior de 8 anos", "en": "Older than 8 yo"},
   "kid_name": {"pt": "O nome da criança", "en": "Kid's name"},
-
+  //
 }
 
 function getLanguage(){
