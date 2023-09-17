@@ -8,51 +8,67 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <title>Go•Ma - Mariana & Gonçalo</title>
-  <meta name="description" content="Cátia e José – Save the Date">
+  <meta name="description" content="Go•Ma - Mariana & Gonçalo">
   <meta name="author" content="GoMa Studios">
   <link rel="stylesheet" href="general.css">
   <link rel="stylesheet" href="main.css">
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="progress-bar.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellota+Text">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="animations.js"></script>
   <script src="progress-bar.js"></script>
 </head>
   <body>
     <div class="wrapper">
-      <section id="presenca" class="container">
-        <img src="img/planta-top-menu.png" alt="" class="header-plant">
 
-        <div class="sidebar">
-          <nav id="menu">
+      <div class="navbar" id="menu-normal">
+        <nav id="menu">
+          <img src="img/goma-subtract.svg" alt="GoMa">
+          <a href="#top" id="#presenca" class="menu-items localize active">[menu_rsvp]</a>
+          <a href="#localizacao" id="#localizacao" class="menu-items localize">[menu_location]</a>
+          <a href="#faqs" id="#faqs" class="menu-items localize">[menu_faqs]</a>
+          <a href="#contactos" id="#contactos" class="menu-items localize">[menu_contacts]</a>
+          <a href="gifts.html" id="#gifts" class="menu-items localize" target="_blank">[menu_gifts] <img src="img/new-tab.svg" alt="Opens in a new tab"></a>
+          <a href="index.html" class="logout localize">[menu_logout]</a>
 
-            <h6>Menu</h6>
-            <a href="#presenca" id="#presenca" class="menu-items active">A tua presença</a>
-            <a href="#localizacao" id="#localizacao" class="menu-items">Localização e Agenda</a>
-            <a href="#faqs" id="#faqs" class="menu-items">Perguntas frequentes</a>
-            <a href="#convite" id="#convite" class="menu-items">O teu convite</a>
-            <a href="#contactos" id="#contactos" class="menu-items">Contactos</a>
-            <a href="gifts.html" id="#gifts" class="menu-items">Presentes</a>
-            <a href="index.html" class="logout">Sair</a>
-          </nav>
-        </div>
-
-        <div class="content" id="top">
-          <div class="header-left" >
-            <div class="header-title">
-              <h1 class="calligraphy">Mariana & Gonçalo</h1>
-              <p>28 &middot; 10 &middot; 2023</p>
-            </div>
-            <img src="img/monograma.svg" alt="C&J" class="header-monograma">
-            <a href="#" class="mobile-menu">Menu</a>
+          <div class="menu-lang">
+            <a href="?lang=pt" class="menu-items">PT</a>
+            <a href="?lang=en" class="menu-items">EN</a>
           </div>
 
-          <h2 class="hello" id="welcome">Olá, [FirstName].</h2>
+          <p class="signature">Made with ♥ by GoMa, 2023.</p>
+        </nav>
+      </div>
 
-          <section id="gifts_container" class="page-section">
+      <div class="navbar" id="mobile-menu" style="display:none;">
+        <nav id="menu">
 
-          </section>
+          <a href="#" class="close-icon"><img src="img/close.svg" alt="Close"></a>
 
+          <a href="#top" id="#presenca" class="menu-items localize active">[menu_rsvp]</a>
+          <a href="#localizacao" id="#localizacao" class="menu-items localize">[menu_location]</a>
+          <a href="#faqs" id="#faqs" class="menu-items localize">[menu_faqs]</a>
+          <a href="#contactos" id="#contactos" class="menu-items localize">[menu_contacts]</a>
+          <a href="gifts.html" id="#gifts" class="menu-items localize" target="_blank">[menu_gifts] <img src="img/new-tab.svg" alt="Opens in a new tab"></a>
+          <a href="index.html" class="logout localize">[menu_logout]</a>
+
+          <div class="menu-lang">
+            <a href="?lang=pt" class="menu-items">PT</a>
+            <a href="?lang=en" class="menu-items">EN</a>
+          </div>
+
+          <p class="signature">Made with ♥ by GoMa, 2023.</p>
+        </nav>
+      </div>
+
+      <h2 class="hello localize" id="welcome">[HI], [FirstName].</h2>
+      <a id="menu-mobile-button" style="cursor:pointer">
+        <img src="img/menu-icon.svg" alt="Menu">
+        Menu
+      </a>
+
+
+      <section id="gifts_container" class="container">
           <script type="text/javascript">
             getGifts(function(data){
               // console.log(data.records);
@@ -93,38 +109,11 @@
 
           </script>
 
-          <section id="contactos" class="page-section">
-            <h3>Contactos</h3>
-            <p>Ficaste com alguma dúvida ou precisas de ajuda com algo? Fica à vontade para nos contactares, caso necessites.</p>
-            <div class="contactos">
-              <div class="contacto-noiva">
-                <p class="noiva">Cátia</p>
-                <a href="tel:+351917044614">917 044 614</a>
-              </div>
-              <div class="monograma">
-                <img src="img/monograma.svg" alt="C&J">
-              </div>
-              <div class="contacto-noivo">
-                <p class="noivo">José</p>
-                <a href="tel:+351916086744">916 086 744</a>
-              </div>
-            </div>
-          </section>
 
-
-          <p class="signature">Made with ♥ by GoMa, 2021.</p>
         </div>
       </section>
-      <footer>
-        <img src="img/planta-top-right.png" alt="" class="footer-plant">
-      </footer>
 
-      <div class="modal-overlay" id="modal-loading">
-        <div class="modal-card modal-loading">
-          <img id="loading" src="img/loading.gif" />
-          <p class="loading-txt">A verificar a lista de convidados...</p>
-        </div>
-      </div>
+
 
       <div class="modal-overlay" id="modal-overlay">
         <div class="modal-card" id="modal-card">
