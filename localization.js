@@ -84,10 +84,22 @@ let translations = {
   "1_contributor": {"pt": "já contribuiu", "en": "already contributed"},
   "3_contributors": {"pt": "já contribuiram", "en": "already contributed"},
   "more": {"pt": "e mais", "en": "and"},
+  "person": {"pt": "pessoa", "en": "more person"},
   "people": {"pt": "pessoas", "en": "more people"},
   "contribute": {"pt": "Contribuir", "en": "Contribute"},
   "contribution": {"pt": "Contribuição", "en": "Contribution"},
-  "contribution_instruction": {"pt": "Por favor introduz o valor da tua contribuição. No próximo passo, damos-te os dados bancários para poderes fazer uma transferência.", "en": "Please enter your contribution amount. On the next step, we'll give you the details to make a bank transfer."},
+  "contribution_instruction": {
+    "pt": "Por favor introduz o valor da tua contribuição. No próximo passo, damos-te os dados bancários para poderes fazer uma transferência.",
+    "en": "Please enter your contribution amount. On the next step, we'll give you the details to make a bank transfer."
+  },
+  "contribution_data_title": {
+    "pt": `Obrigado pela tua contribuição.`,
+    "en": `Thank you for your contribution.`
+  },
+  "contribution_data_description": {
+    "pt": "Estes são os meio pelos quais podes fazer a transferencia:",
+    "en": "These are the methods you can use to make the bank transfer:"
+  },
 }
 
 function getLanguage(){

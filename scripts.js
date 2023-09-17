@@ -106,7 +106,9 @@ function formSubmit(target) {
       // refresh
       // location.reload();
       // fetch(user);
-      // $(".modal-overlay").hide();
+      $(".modal-overlay").hide();
+      $("#modal-overlay_2").show();
+
     }, function(){
       // console.log("error");
       $(".modal-overlay").hide();
@@ -145,8 +147,8 @@ getActiveFAQs(function(data){
 
 // listners
 
-$("#close").click(function(){
-  $('#modal-overlay').toggle();
+$(".close").click(function(){
+  $('.modal-overlay').hide();
 });
 
 $("body").on("click", ".confirm", function(e){
