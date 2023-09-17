@@ -82,11 +82,24 @@
                     var gifts = "";
                     data.records.forEach((entry, i) => {
                       var gift = entry.fields;
-                      console.log(gift);
+                      // console.log(gift);
                       // console.log(typeof gift.contributors);
                       // var contributors = (gift.contributors !== undefined) ? gift.contributors.join(", ") : [];
+                      let contributors_msg = '';
                       let contributors = [...new Set(gift.contributors)];
-                      let contribuitors_msg = (contributors.length > 0) ? `${contributors.length} pessoas já contribuiram` : 'Sê o primeiro a contribuir!';
+                      if (contributors.length == 1) {
+                        contributors_msg = `${contributors.slice(0, 3).join(", ")} já contribuiu`;
+                      }
+                      else if (contributors.length > 1 && contributors.length <= 3) {
+                        contributors_msg = `${contributors.slice(0, 3).join(", ")} já contribuiram`;
+                      }
+                      else if (contributors.length > 3) {
+                        contributors_msg = `${contributors.slice(0, 3).join(", ")} e mais ${contributors.length-3} pessoas já contribuiram`;
+                      }
+                      else {
+                        contributors_msg = 'Sê o primeiro a contribuir!';
+                      }
+                      // let contribuitors_msg = (contributors.length > 0) ? `${contributors.length} pessoas já contribuiram` : '';
                       let img = (gift.images !== undefined) ? gift.images[0].url : '';
                       // let contributions = 0;
                       // console.log(gift.contributions);
@@ -101,9 +114,13 @@
                           <h3 class="gift-title">${gift['experiencia_'+lang]}</h3>
                           <p class="gift-location">${gift.location}</p>
                           <p class="gift-description">${gift['descricao_'+lang]}</p>
-                          <p class="n-contributors">${contributors.slice(0, 3).join(", ")} e mais ${contribuitors_msg}</p>
+                          <p class="n-contributors">${contributors_msg}</p>
                         </div>
+<<<<<<< Updated upstream
                         <button type="button" name="button" class="btn-primary localize contribute" gift_id="${gift.ID}" gifts_id="${entry.id}">Contribuir</button>
+=======
+                        <button type="button" name="button" class="btn-primary localize contribute" gift="${entry.id}">Contribuir</button>
+>>>>>>> Stashed changes
                       </div>`;
                       $("#gifts_container").append(g);
                     });
@@ -136,8 +153,8 @@
             <!-- <input type="hidden" id="id" value="" /> -->
             <input type="hidden" id="user_id" name="user_id" value="" />
             <input type="hidden" id="confirmed" name="confirmed" value="false">
-            <input type="hidden" id="gift_id" name="gift_id" value="">
-            <input type="hidden" id="gifts" name="gifts" value="">
+            <input type="hidden" id="gift" name="gift" value="">
+            <!-- <input type="hidden" id="gifts" name="gifts" value=""> -->
           </form>
 
         </div>

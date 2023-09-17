@@ -123,19 +123,23 @@ function getGifts(callback, error) {
 
 function addContributionRecord(record, callback, error) {
   // console.log("https://api.airtable.com/v0/appPQZZSswJvzwm5a/users");
-  console.log(record.fields['user_id']);
-  users = record.fields["user_id"];
-  record.fields['user_id'] = users.split(",");
+  // console.log(record.fields['user_id']);
+  // users = record.fields["user_id"];
+  let user = JSON.parse(getCookie("casamentogoma.com-user"));
+  let users = JSON.parse(getCookie("casamentogoma.com-users"));
 
-  gifts = record.fields['gifts'];
-  record.fields['gifts'] = [record.fields['gifts']];
+  record.fields['user_id'] = user.id;
+
+  // gifts = record.fields['gifts'];
+  record.fields['gift'] = [record.fields['gift']];
+  record.fields['user_id'] = [record.fields['user_id']];
 
   record.fields['amount'] = parseFloat(record.fields['amount']);
   record.fields['confirmed'] = (record.fields['confirmed'] === true);
-  record.fields['gift_id'] = parseFloat(record.fields['gift_id']);
+  // record.fields['gift_id'] = parseFloat(record.fields['gift_id']);
 
   let data = {'records': [record]};
-  console.log(data);
+  // console.log(data);
   $.ajax({
     url: "https://api.airtable.com/v0/appPQZZSswJvzwm5a/contributions",
     beforeSend: function(xhr) {

@@ -104,7 +104,7 @@ function formSubmit(target) {
     addContributionRecord(data, function(data){
       console.log("success");
       // refresh
-      location.reload();
+      // location.reload();
       // fetch(user);
       // $(".modal-overlay").hide();
     }, function(){
@@ -234,10 +234,10 @@ setInterval(function(){
 }, 500);
 
 $("body").on("click", ".contribute", function(e){
-  console.log(e.target);
-  console.log($(e.target).attr("gift_id"));
-  $("#gift_id").val($(e.target).attr("gift_id"))
-  $("#gifts").val($(e.target).attr("gifts_id"));
+  // console.log(e.target);
+  // console.log($(e.target).attr("gift"));
+  $("#gift").val($(e.target).attr("gift"))
+  // $("#gifts").val($(e.target).attr("gifts_id"));
   $("#modal-overlay").show();
 });
 
