@@ -87,6 +87,7 @@ let translations = {
   "people": {"pt": "pessoas", "en": "more people"},
   "contribute": {"pt": "Contribuir", "en": "Contribute"},
   "contribution": {"pt": "Contribuição", "en": "Contribution"},
+  "contribution_instruction": {"pt": "Por favor introduz o valor da tua contribuição. No próximo passo, damos-te os dados bancários para poderes fazer uma transferência.", "en": "Please enter your contribution amount. On the next step, we'll give you the details to make a bank transfer."},
 }
 
 function getLanguage(){
