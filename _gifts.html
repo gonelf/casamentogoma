@@ -103,7 +103,7 @@
                           <p class="gift-description">${gift['descricao_'+lang]}</p>
                           <p class="n-contributors">${contributors.slice(0, 3).join(", ")} e mais ${contribuitors_msg}</p>
                         </div>
-                        <button type="button" name="button" class="btn-primary btn-form localize contribute" gift_id="${gift.ID}" gifts_id="${entry.id}">Contribuir</button>
+                        <button type="button" name="button" class="btn-primary localize contribute" gift_id="${gift.ID}" gifts_id="${entry.id}">Contribuir</button>
                       </div>`;
                       $("#gifts_container").append(g);
                     });
