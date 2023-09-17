@@ -88,16 +88,16 @@
                       let contributors_msg = '';
                       let contributors = [...new Set(gift.contributors)];
                       if (contributors.length == 1) {
-                        contributors_msg = `${contributors.slice(0, 3).join(", ")} já contribuiu`;
+                        contributors_msg = `${contributors.slice(0, 3).join(", ")} <span class="localize">[1_contributor]</span>`;
                       }
                       else if (contributors.length > 1 && contributors.length <= 3) {
-                        contributors_msg = `${contributors.slice(0, 3).join(", ")} já contribuiram`;
+                        contributors_msg = `${contributors.slice(0, 3).join(", ")} <span class="localize">[3_contributors]</span>`;
                       }
                       else if (contributors.length > 3) {
-                        contributors_msg = `${contributors.slice(0, 3).join(", ")} e mais ${contributors.length-3} pessoas já contribuiram`;
+                        contributors_msg = `${contributors.slice(0, 3).join(", ")} <span class="localize">[more]</span> ${contributors.length-3} <span class="localize">[people]</span> <span class="localize">[3_contributors]</span>`;
                       }
                       else {
-                        contributors_msg = 'Sê o primeiro a contribuir!';
+                        contributors_msg = '<span class="localize">[0_contributors]</span>';
                       }
                       // let contribuitors_msg = (contributors.length > 0) ? `${contributors.length} pessoas já contribuiram` : '';
                       let img = (gift.images !== undefined) ? gift.images[0].url : '';
@@ -116,12 +116,13 @@
                           <p class="gift-description">${gift['descricao_'+lang]}</p>
                           <p class="n-contributors">${contributors_msg}</p>
                         </div>
-                        <button type="button" name="button" class="btn-primary localize contribute" gift="${entry.id}">Contribuir</button>
+                        <button type="button" name="button" class="btn-primary localize contribute" gift="${entry.id}" gift_title="${gift['experiencia_'+lang]}" gift_image="${img}">[contribute]</button>
                       </div>`;
                       $("#gifts_container").append(g);
                     });
+                    localize();
                   });
-
+                  // localize();
                 </script>
 
               </div>
@@ -130,20 +131,23 @@
       </section>
 
 
-      <div class="modal-overlay" id="modal-overlay">
+      <div class="modal-overlay" id="modal-overlay" style="display:none; position:fixed">
         <div class="modal-card" id="modal-card">
           <h2 class="modal-title"></h2>
+          <div class="" style="width:100%; max-height: 300px; overflow: hidden;">
+            <img class="modal-image" src="" />
+          </div>
           <a href="#" id="close"><img src="img/close.svg" alt="Fechar"></a>
 
           <form class="_form_" action="index.html" method="post" id="contribution" name="contribution" style="display:block;">
             <div class="form-container">
               <div class="form-field other-fields">
-                <label for="cont_value" class="form-label">Contribuição</label>
+                <label for="cont_value" class="form-label localize">[contribution]</label>
                 <input type="text" id="amount" name="amount" value="" placeholder="">
               </div>
             </div>
             <div class="button-container">
-              <button type="submit" name="contribution" class="btn-gold btn-form">Confirmar</button>
+              <button type="submit" name="contribution" class="btn-gold btn-form localize">[confirm_btn]</button>
             </div>
 
             <!-- <input type="hidden" id="id" value="" /> -->

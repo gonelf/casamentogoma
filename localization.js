@@ -78,8 +78,15 @@ let translations = {
   "age_kid_option_2": {"pt": "Entre 4 e 8 anos", "en": "between 4 and 8 yo"},
   "age_kid_option_3": {"pt": "Maior de 8 anos", "en": "Older than 8 yo"},
   "kid_name": {"pt": "O nome da criança", "en": "Kid's name"},
-  //
-  "gifts_under_construction": {"pt": "Estamos a construir esta página", "en": "This page is under construction"}
+  // gists page
+  "gifts_under_construction": {"pt": "Estamos a construir esta página", "en": "This page is under construction"},
+  "0_contributors": {"pt": "Sê o primeiro a contribuir!", "en": "Be the first to contribute!"},
+  "1_contributor": {"pt": "já contribuiu", "en": "already contributed"},
+  "3_contributors": {"pt": "já contribuiram", "en": "already contributed"},
+  "more": {"pt": "e mais", "en": "and"},
+  "people": {"pt": "pessoas", "en": "more people"},
+  "contribute": {"pt": "Contribuir", "en": "Contribute"},
+  "contribution": {"pt": "Contribuição", "en": "Contribution"},
 }
 
 function getLanguage(){
@@ -92,6 +99,7 @@ function getLanguage(){
 let lang = getLanguage();
 
 function localize () {
+  console.log("localize");
   // let lang = getLanguage();
   $(".localize").each((i, e)=>{
     // console.log($(e).attr('placeholder'));
@@ -108,5 +116,4 @@ function localize () {
       ($(e).text() !== "") ? $(e).text(new_text) : $(e).attr('placeholder', new_text);
     }
   });
-
 }

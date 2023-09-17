@@ -236,8 +236,12 @@ setInterval(function(){
 $("body").on("click", ".contribute", function(e){
   // console.log(e.target);
   // console.log($(e.target).attr("gift"));
-  $("#gift").val($(e.target).attr("gift"))
+  $("#gift").val($(e.target).attr("gift"));
   // $("#gifts").val($(e.target).attr("gifts_id"));
+  console.log($(e).attr("gift_title"));
+  $(".modal-title").text($(e.target).attr("gift_title"));
+  $(".modal-image").attr("src", $(e.target).attr("gift_image"));
+
   $("#modal-overlay").show();
 });
 
