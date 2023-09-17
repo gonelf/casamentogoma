@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="progress-bar.css" />
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="animations.js"></script>
-  <script src="progress-bar.js"></script>
+  <script type="text/javascript" src="localization.js"></script>
 </head>
   <body>
     <div class="wrapper">
@@ -59,35 +59,31 @@
               var gifts = "";
               data.records.forEach((entry, i) => {
                 var gift = entry.fields;
+                console.log(gift);
                 // console.log(typeof gift.contributors);
-                var contributors = (gift.contributors !== undefined) ? gift.contributors.join(", ") : [];
-                let unique = [...new Set(gift.contributors)];
-                let contributions = 0;
+                // var contributors = (gift.contributors !== undefined) ? gift.contributors.join(", ") : [];
+                let contributors = [...new Set(gift.contributors)];
+                let contribuitors_msg = (contributors.length > 0) ? `${contributors.length} pessoas já contribuiram` : 'Sê o primeiro a contribuir!';
+                let img = (gift.images !== undefined) ? gift.images[0].url : '';
+                // let contributions = 0;
                 // console.log(gift.contributions);
-                (gift.contributions) ? gift.contributions.map(x => contributions += x) : 0;
-                let percent = Math.round(contributions*100/gift.value);
+                // (gift.contributions) ? gift.contributions.map(x => contributions += x) : 0;
+                // let percent = Math.round(contributions*100/gift.value);
                 var g = `
                 <div id="${entry.id}" style="display:flex; margin-bottom:30px;">
                   <div id="left" >
-                    <img src="${gift.images[0].url}" />
+                    <img src="${img}" />
                   </div>
                   <div id="right" style="padding-left:20px;">
-                    <h1>${gift.title}</h1>
-                    <div class="progress-bar">
-                      <div class="progress"
-                      data-percent="${percent}"
-                      data-color="green">
-                      <span>${percent}%</span>
-                      </div>
-                    </div>
-                    <h2>Preço: €${gift.value}</h2>
-                    <h2>Contribuições: €${contributions}</h2>
-                    <span>${unique.join(", ")}</span>
+                    <h1>${gift['experiencia_'+lang]}</h1>
+                    <p>${gift.location}</p>
+                    <p>${gift['descricao_'+lang]}</p>
+                    <h3>${contribuitors_msg}</h3>
+                    <span>${contributors.slice(0, 3).join(", ")}</span>
                     <button type="button" name="button" class="contribute" gift_id="${gift.ID}" gifts_id="${entry.id}">Contribuir</button>
                   </div>
                 </div>`;
                 $("#gifts_container").append(g);
-                $(".progress-bar").ProgressBar();
               });
             });
 

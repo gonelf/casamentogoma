@@ -87,8 +87,10 @@ function getLanguage(){
   return urlParams.get('lang') ? urlParams.get('lang') : "pt";
 }
 
+let lang = getLanguage();
+
 function localize () {
-  let lang = getLanguage();
+  // let lang = getLanguage();
   $(".localize").each((i, e)=>{
     // console.log($(e).attr('placeholder'));
     // console.log($(e)[0].placeholder);
