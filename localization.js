@@ -50,6 +50,8 @@ let translations = {
   "contact_us": {"pt": "contacta-nos!", "en": "contact us!"},
   // contacts
   "contacts_message": {"pt": "Ficaste com alguma dúvida ou precisas de ajuda com algo? Fica à vontade para nos contactares, caso necessites.", "en": "Have a question or need help with something? Feel free to contact us if needed."},
+  // gifts
+  "gifts_message": {"pt": "Felizmente temos tudo o que precisamos para a nossa casa, pelo que, caso queiras dar-nos um presente, sugerimos que contribuas para a nossa viagem de lua-de-mel ao Japão.", "en": "We are fortunate to have everything we need for our home already, so if you want to give us a wedding gift, we suggest that you contribute for our honeymoon trip to Japan."},
   // loading
   "loading...": {"pt": "A verificar a lista de convidados...", "en": "Loading..."},
   // forms

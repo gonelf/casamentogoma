@@ -67,48 +67,54 @@
         Menu
       </a>
 
+      <section id="presenca" class="container">
+        <div class="content" id="top">
+          <section class="page-section">
+            <h3 class="localize">[menu_gifts]</h3>
+            <p>
+              <span class="localize">[gifts_message]</span>
+            </p>
+              <div class="cards-row" id="gifts_container">
 
-      <section id="gifts_container" class="container">
-          <script type="text/javascript">
-            getGifts(function(data){
-              // console.log(data.records);
-              var gifts = "";
-              data.records.forEach((entry, i) => {
-                var gift = entry.fields;
-                console.log(gift);
-                // console.log(typeof gift.contributors);
-                // var contributors = (gift.contributors !== undefined) ? gift.contributors.join(", ") : [];
-                let contributors = [...new Set(gift.contributors)];
-                let contribuitors_msg = (contributors.length > 0) ? `${contributors.length} pessoas já contribuiram` : 'Sê o primeiro a contribuir!';
-                let img = (gift.images !== undefined) ? gift.images[0].url : '';
-                // let contributions = 0;
-                // console.log(gift.contributions);
-                // (gift.contributions) ? gift.contributions.map(x => contributions += x) : 0;
-                // let percent = Math.round(contributions*100/gift.value);
-                var g = `
-                <div id="${entry.id}" style="display:flex; margin-bottom:30px;">
-                  <div id="left" >
-                    <img src="${img}" />
-                  </div>
-                  <div id="right" style="padding-left:20px;">
-                    <h1>${gift['experiencia_'+lang]}</h1>
-                    <p>${gift.location}</p>
-                    <p>${gift['descricao_'+lang]}</p>
-                    <h3>${contribuitors_msg}</h3>
-                    <span>${contributors.slice(0, 3).join(", ")}</span>
-                    <button type="button" name="button" class="contribute" gift_id="${gift.ID}" gifts_id="${entry.id}">Contribuir</button>
-                  </div>
-                </div>`;
-                $("#gifts_container").append(g);
-              });
-            });
+                <script type="text/javascript">
+                  getGifts(function(data){
+                    // console.log(data.records);
+                    var gifts = "";
+                    data.records.forEach((entry, i) => {
+                      var gift = entry.fields;
+                      console.log(gift);
+                      // console.log(typeof gift.contributors);
+                      // var contributors = (gift.contributors !== undefined) ? gift.contributors.join(", ") : [];
+                      let contributors = [...new Set(gift.contributors)];
+                      let contribuitors_msg = (contributors.length > 0) ? `${contributors.length} pessoas já contribuiram` : 'Sê o primeiro a contribuir!';
+                      let img = (gift.images !== undefined) ? gift.images[0].url : '';
+                      // let contributions = 0;
+                      // console.log(gift.contributions);
+                      // (gift.contributions) ? gift.contributions.map(x => contributions += x) : 0;
+                      // let percent = Math.round(contributions*100/gift.value);
+                      var g = `
+                      <div id="${entry.id}" class="gift-card">
+                        <div class="gift-img" >
+                          <img src="${img}" />
+                        </div>
+                        <div class="gift-content">
+                          <h3 class="gift-title">${gift['experiencia_'+lang]}</h3>
+                          <p class="gift-location">${gift.location}</p>
+                          <p class="gift-description">${gift['descricao_'+lang]}</p>
+                          <p class="n-contributors">${contributors.slice(0, 3).join(", ")} e mais ${contribuitors_msg}</p>
+                        </div>
+                        <button type="button" name="button" class="btn-primary btn-form localize contribute" gift_id="${gift.ID}" gifts_id="${entry.id}">Contribuir</button>
+                      </div>`;
+                      $("#gifts_container").append(g);
+                    });
+                  });
 
-          </script>
+                </script>
 
-
+              </div>
+          </section>
         </div>
       </section>
-
 
 
       <div class="modal-overlay" id="modal-overlay">
