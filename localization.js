@@ -75,8 +75,8 @@ let translations = {
   "rsvp_kid_no": {"pt": "Não pode vir :(", "en": "No, it won't go"},
   "age_label": {"pt": "Idade", "en": "Age"},
   "age_kid_option_1": {"pt": "3 anos ou menor", "en": "3 yo or younger"},
-  "age_kid_option_2": {"pt": "Entre 4 e 8 anos", "en": "between 4 and 8 yo"},
-  "age_kid_option_3": {"pt": "Maior de 8 anos", "en": "Older than 8 yo"},
+  "age_kid_option_2": {"pt": "Entre 3 e 10 anos", "en": "between 3 and 10 yo"},
+  "age_kid_option_3": {"pt": "Maior de 10 anos", "en": "10 yo or older"},
   "kid_name": {"pt": "O nome da criança", "en": "Kid's name"},
   // gists page
   "gifts_under_construction": {"pt": "Estamos a construir esta página", "en": "This page is under construction"},
