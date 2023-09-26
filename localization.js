@@ -30,7 +30,7 @@ let translations = {
     "en": "This area dedicated to RSVP your presence."
   },
   "rsvp_message" : {"pt": "Por favor, confirma até dia", "en": "Please RSVP before"},
-  "month": {"pt": "1 de Outubro", "en": "October 1st"},
+  "month": {"pt": "8 de Outubro", "en": "October 8th"},
   "child": {"pt": "Filho/a", "en": "Son/Daughter"},
   "rsvp_going": {"pt": "Confirmado", "en": "Confirmed"},
   "rsvp_not_going": {"pt": "Não posso ir", "en": "I can't go"},
